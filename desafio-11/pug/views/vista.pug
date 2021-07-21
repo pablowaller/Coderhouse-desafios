@@ -1,0 +1,23 @@
+extends layouts/index
+
+block main 
+    div(class="jumbotron bg-success")
+        h1(class="text-light")="Vista de Productos"
+        br
+
+        div(class="table-responsive")
+            table(class="table table-dark")
+                
+                each producto in productos
+                    tr
+                        th="Nombre"
+                        th="Precio"
+                        th="Foto"
+                            tr 
+                                td=producto.title 
+                                td=producto.price 
+                                td 
+                                    img(width="50" src=producto.thumbnail alt="not found")
+                else 
+                    h3(class="alert bg-dark text-light")="No se encontraron Productos"
+

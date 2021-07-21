@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <%- include('./partials/head' )-%>
+  </head>
+
+  <nav><%- include('./partials/nav')-%></nav>
+
+  <body>
+    <div class="container mt-3">
+      <style>
+        .table td,
+        .table th {
+          vertical-align: middle;
+        }
+      </style>
+
+      <div class="jumbotron bg-success">
+        <h1 class="text-light">Vista de Productos</h1>
+        <br />
+
+        <% if(productos.length > 0) { %>
+        <div class="table-responsive">
+          <table class="table table-dark">
+            <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Foto</th>
+            </tr>
+            <% productos.forEach(function(producto){ %>
+            <tr>
+              <td><%= producto.title %></td>
+              <td><%= producto.price %></td>
+              <td>
+                <img
+                  width="50"
+                  src="<%= producto.thumbnail %> "
+                  alt="not found"
+                />
+              </td>
+            </tr>
+            <% }) %>
+          </table>
+        </div>
+        <%}else{ %>
+        <h3 class="alert bg-dark text-light">No se encontraron productos</h3>
+        <% }%>
+      </div>
+    </div>
+  </body>
+</html>

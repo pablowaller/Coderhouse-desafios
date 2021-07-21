@@ -1,0 +1,26 @@
+{
+  "name": "desafio17",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dev": "nodemon  ./src/server.js",
+    "migrate": "node ./src/database/migracion.js",
+    "drop": "node ./src/database/drop.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "knex": "^0.95.6",
+    "mysql": "^2.18.1",
+    "socket.io": "^4.1.2",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0"
+  }
+}

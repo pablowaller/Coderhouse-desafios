@@ -1,0 +1,91 @@
+Crear base que contentenga dos colecciones : mensajes y productos
+
+use ecommerce
+db.createCollection('mensajes')
+db.createCollection('productos')
+
+
+{ mensaje: 'Nuevo Mensaje',email : 'email@gmail.com', date: ISODate() }
+{ title: 'Nuevo titulo', price: 500.00, thumbnail: 'http://image.jpg'}
+
+
+1 / 2 - Agregar 10 documentos a mensajes y productos 
+db.productos.insert([{ title: 'Calculadora', price: 260.00, thumbnail: 'http://image.jpg'},
+                     { title: 'Lapicera', price: 280.00, thumbnail: 'http://image.jpg'},
+                     { title: 'Regla', price: 120.00, thumbnail: 'http://image.jpg'},
+                     { title: 'Taza', price: 500.00, thumbnail: 'http://image.jpg'},
+                     { title: 'Plato', price: 1500.00, thumbnail: 'http://image.jpg'},
+                     { title: 'Cuchara x 12', price: 2700.00, thumbnail: 'http://image.jpg'},
+                     { title: 'Tenedor x 12', price: 3500.00, thumbnail: 'http://image.jpg'},
+                     { title: 'Cuchillo x 12', price: 2500.00, thumbnail: 'http://image.jpg'},
+                     { title: 'Vaso Juliana', price: 250.00, thumbnail: 'http://image.jpg'},
+                     { title: 'Vaso Cristal', price: 1200.00, thumbnail: 'http://image.jpg'}])
+
+db.mensajes.insert([{ message: 'No todo lo que brilla es oro',email : 'elritual@gmail.com', date: ISODate() },
+                    { message: 'No dejo de sentirme solo',email : 'quememantiene@gmail.com', date: ISODate() },
+                    { message: 'afuera es un quilombo',email : 'enavenidas@gmail.com', date: ISODate() },
+                    { message: 'adentro estoy bien ',email : 'unpocosi@gmail.com', date: ISODate() },
+                    { message: 'Yo seguire caminando un toque y joggineta',email : 'pocosi@gmail.com', date: ISODate() },
+                    { message: 'Una aspirineta vencida te regala nociones',email : 'pocono@gmail.com', date: ISODate() },
+                    { message: 'un poco si porque tambien la extraño',email : 'pocotambien@gmail.com', date: ISODate() },
+                    { message: 'Un poco si un poco no',email : 'enavenidas@gmail.com', date: ISODate() },
+                    { message: 'un poco si que tambien',email : 'tantantan@gmail.com', date: ISODate() },
+                    { message: 'en avenidas',email : 'tantararan@gmail.com', date: ISODate() }
+                    ])
+
+3- Listar todos los documentos en cada coleccion
+
+db.mensajes.find()
+db.productos.find()
+
+4- Mostrar la cantidad de datos almacenados
+
+db.mensajes.count()
+db.productos.count()
+
+5-Realizar un Crud
+
+    a- Agregar un productos mas en productos
+
+        db.productos.insertOne({ title: 'Goma x 1000', price: 4500.00, thumbnail: 'http://image.jpg'})
+    
+    b- Realizar por nombre de producto especifico 
+        I - Con precio menos a 1000
+
+            db.productos.find({ price: {$lt: 1000}})
+
+        II- Con precio entre 1000 y 3000
+
+            db.productos.find({ $and: [ 
+                {price: {$gt: 1000} },
+                {price: {$lt: 3000} },
+                 ]})
+
+        III- Con precio mayor a 3000
+             db.productos.find({ price: {$gt: 3000}})
+        
+        IV- El Tercer producto mas barato
+            db.productos.find({},{  title:1, _id: 0}).sort({price : 1}).skip(2).limit(1)
+
+    c- Hacer una actualizacion sobre todos los productos, campo stock a 100
+        db.productos.updateMany({}, {$set: {stock: 100}})
+    
+    d-Cambiar a cero los productos con precio mayor a  4000
+        db.productos.updateMany({price:{ $gt: 4000}}, {$set: {stock: 0}})
+
+
+6- Crear un usuario de lectura 'pepe' clave: 'asd456' que solo pueda leer
+
+    use admin
+
+    db.createUser({
+            user: 'pepe', 
+            pwd:'asd456', 
+            roles: 
+                [ 
+                    { role: "read" , db: "ecommerce"}
+                ] 
+            })
+
+    mongo -u pepe -p asd456
+

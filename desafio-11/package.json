@@ -1,0 +1,20 @@
+{
+  "name": "desafio10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "startpug": "nodemon pug/server.js",
+    "startejs": "nodemon ejs/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0"
+  }
+}

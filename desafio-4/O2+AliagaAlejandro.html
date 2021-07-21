@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.6.3/rxjs.umd.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="texto" />
+      <div id="espejado"></div>
+    </div>
+  </body>
+
+  <script>
+    const { Observable, fromEvent, pipe, throwError } = rxjs
+    const { filter, map, catchError, finalize } = rxjs.operators
+
+    const $input = document.getElementById('texto')
+    const $reverseDiv = document.getElementById('espejado')
+
+    //funcion para mostrar Reverse
+    const mostrarReverse = data => {
+      $reverseDiv.innerText = data
+    }
+
+    //funcion para hacer el reverse de un string
+    const reverseString = string => {
+      let arrayString = string.split('')
+      arrayString.reverse()
+      return arrayString.join('')
+    }
+
+    //Creando el observable del evento input con fromEvent
+    const inputEvent$ = fromEvent($input, 'input')
+
+    //espejando input con map y ejecuto la logica necesaria
+    const espejarInput$ = inputEvent$.pipe(
+      map(event => {
+        const { value } = event.target
+        if (value !== 'error' && value !== 'complete') {
+          return reverseString(value)
+        } else if (value === 'error') {
+          throw new Error('Error en input')
+        } else {
+          throw 'Complete typed'
+        }
+      }),
+      //Al finalizar el Observable se limpan los input y se desactiva
+      finalize(() => {
+        console.warn('Observable completed')
+        $input.disabled = true
+        $reverseDiv.innerHTML = ''
+      })
+    )
+
+    // Comienza la subscripcion
+
+    const subscriptor = espejarInput$.subscribe(
+      data => {
+        mostrarReverse(data)
+      },
+      error => {
+        if (error.message !== undefined) {
+          console.error(error.message)
+        } else {
+          console.warn(error)
+        }
+      }
+    )
+
+    setTimeout(() => {
+      console.warn('Observable Input desuscripción ')
+      subscriptor.unsubscribe()
+    }, 30000)
+  </script>
+</html>

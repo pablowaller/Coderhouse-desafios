@@ -1,0 +1,19 @@
+extends layouts/index
+
+block main
+    div(class="jumbotron bg-success text-light")
+        h2(style="text-align: center")="Ingrese Producto"
+        div(class="row justify-content-center")
+            div(class="col-md-6")
+                form(action="/api/productos/guardar" method="POST")
+                    div(class="form-group")
+                        label(for="title")="Nombre"
+                        input(type="text" class="form-control" name="title" id="title" placeholder="Nombre de Producto")
+                    div(class="form-group")
+                        label(for="price")="Precio"
+                        input(class="form-control" type="number" id="price" name="price"  placeholder="500")
+                    div(class="form-group")
+                        label(for="imageUrl")="Foto URL"
+                        input(class="form-control" type="text" id="imageUrl" name="thumbnail" placeholder="image.png")
+                    button(class="btn btn-dark btn-block")="Enviar"
+        

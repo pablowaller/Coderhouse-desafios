@@ -1,0 +1,43 @@
+<script>
+  function Usuario(nombre, apellido, libros, mascotas) {
+    this.nombre = nombre
+    this.apellido = apellido
+    this.libros = libros
+    this.mascotas = mascotas
+  }
+
+  Usuario.prototype.getFullName = function () {
+    console.log(`${this.nombre} ${this.apellido}`)
+  }
+  Usuario.prototype.addMascota = function (mascota) {
+    this.mascotas.push(mascota)
+  }
+  Usuario.prototype.getMascotas = function () {
+    console.log(this.mascotas.length)
+  }
+
+  Usuario.prototype.addBook = function (nombre, autor) {
+    this.libros.push({ nombre: nombre, autor: autor })
+  }
+  Usuario.prototype.getBooks = function () {
+    const booksNames = this.libros.map(libro => libro.nombre)
+    console.log(booksNames)
+  }
+
+  const libros = [
+    {
+      nombre: 'El amor en los tiempos del colera',
+      autor: 'Gabriel Garcia Marquez'
+    },
+    { nombre: 'Cronicas del Angel Gris', autor: 'Alejandro Dolina' }
+  ]
+  const mascotas = ['Ambar', 'Alma', 'Junio', 'Junio Junior']
+
+  const usuario = new Usuario('Alejandro', 'Aliaga', libros, mascotas)
+
+  usuario.getFullName()
+  usuario.addMascota('Gato')
+  usuario.getMascotas()
+  usuario.addBook('La divina comedia', 'Dante Alighieri')
+  usuario.getBooks()
+</script>

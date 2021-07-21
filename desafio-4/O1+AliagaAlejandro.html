@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.6.3/rxjs.umd.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="texto" />
+      <div id="espejado"></div>
+    </div>
+  </body>
+
+  <script>
+    const { Observable } = rxjs
+
+    const $input = document.getElementById('texto')
+    const $reverseDiv = document.getElementById('espejado')
+
+    //funcion para mostrar en div
+    const mostrarReverse = data => {
+      $reverseDiv.innerText = data
+    }
+
+    //funcion para hacer el reverse
+    const reverseString = string => {
+      let arrayString = string.split('')
+      arrayString.reverse()
+
+      return arrayString.join('')
+    }
+
+    // Function Observable
+    function espejarInput$() {
+      return new Observable(subscriber => {
+        $input.addEventListener('input', handleInput)
+
+        function handleInput() {
+          let data = $input.value || ''
+
+          if (data === 'error') {
+            subscriber.error('Error de entrada')
+          } else if (data === 'complete') {
+            subscriber.complete()
+          } else {
+            let datoEspejado = reverseString(data)
+            subscriber.next(datoEspejado)
+          }
+        }
+
+        return () => {
+          $input.removeEventListener('input', handleInput)
+          $input.disabled = true
+          $reverseDiv.innerHTML = ''
+        }
+      })
+    }
+
+    // Comienza la subscripcion
+
+    const subscriptor = espejarInput$().subscribe(
+      data => {
+        mostrarReverse(data)
+      },
+      error => {
+        console.log(error)
+      },
+      complete => {
+        console.log('Se ha completado')
+      }
+    )
+
+    setTimeout(() => {
+      console.warn('Observable Input desuscripción ')
+      subscriptor.unsubscribe()
+    }, 30000)
+  </script>
+</html>
