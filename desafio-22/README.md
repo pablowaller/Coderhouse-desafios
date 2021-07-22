@@ -1,4 +1,4 @@
-## Desafio 22 Fake
+## Desafio 22 Mocks de datos con Faker
 
 Se agrego la ruta `productos/vista-test` utilizando la biblioteca Faker para generar un mocks de datos.
 
