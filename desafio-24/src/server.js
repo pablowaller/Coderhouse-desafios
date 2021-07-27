@@ -35,19 +35,22 @@ app.engine('hbs',handlebars({
 app.set('view engine','hbs')
 app.set('views', __dirname + '/views');
 
+const isLogged = ((req,res,next)=>{
+  const isLogged =  Boolean(req.session.username)
+  const logged = req.cookies['logged']
+  console.log(logged)
+  if( !isLogged || !logged) return res.redirect('/auth')
+   next()
+})
 
 
 //Rutas 
 
-app.get('/',(req,res)=>{
-  const isLogged =  Boolean(req.session.username)
-  const logged = req.cookies['logged']
-
-  if( !isLogged || !logged) return res.redirect('/auth')
+app.get('/',isLogged,(req,res)=>{
 
   return res.cookie('logged',true,{ maxAge: 10000 }).render('main',{
     layout: 'index',
-    isLogged: isLogged,
+    isLogged: req.cookies['logged'] || false,
     username: req.session.username
   })
 })
@@ -68,6 +71,8 @@ initListeners(io)
 app.use((error, req, res, next) => {
   res.status(error.code || 500).json({ error : error.message })
 })
+
+
 
 const PORT = 8080
 
