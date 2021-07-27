@@ -7,12 +7,13 @@ router.post('/login',(req, res)=>{
 
     req.session.username = username
     //return res.status(200).json({ message: 'Ha iniciado session', data: { username: username}})
-    return res.cookie('logged',true,{ maxAge: 10000 }).redirect('/')
+    return res.cookie('logged',true,{ maxAge: 1000*60 }).redirect('/')
 })
 
 router.get('/logout',(req, res)=>{
+    const username = req.session.username
     req.session.destroy(err => {
-        if (!err) return res.render('logout',{ layout: 'index' })
+        if (!err) return res.render('logout',{ layout: 'index', username: username })
 
         else res.send({ status: 'Logout ERROR', body: err })
     })
