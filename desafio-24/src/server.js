@@ -14,7 +14,10 @@ const io = require('socket.io')(http)
 app.use(session({
   secret: 'secreto',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 2000
+  }
 }))
 
 app.use(cookieParser())
@@ -37,9 +40,7 @@ app.set('views', __dirname + '/views');
 
 const isLogged = ((req,res,next)=>{
   const isLogged =  Boolean(req.session.username)
-  const logged = req.cookies['logged']
-  console.log(logged)
-  if( !isLogged || !logged) return res.redirect('/auth')
+  if( !isLogged ) return res.redirect('/auth')
    next()
 })
 
@@ -47,10 +48,10 @@ const isLogged = ((req,res,next)=>{
 //Rutas 
 
 app.get('/',isLogged,(req,res)=>{
-
-  return res.cookie('logged',true,{ maxAge: 10000 }).render('main',{
+  
+  return res.render('main',{
     layout: 'index',
-    isLogged: req.cookies['logged'] || false,
+    isLogged: Boolean(req.session.username) ,
     username: req.session.username
   })
 })
