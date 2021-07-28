@@ -7,7 +7,7 @@ router.post('/login',(req, res)=>{
 
     req.session.username = username
     //return res.status(200).json({ message: 'Ha iniciado session', data: { username: username}})
-    return res.redirect('/')
+    return res.cookie('logged',true,{ maxAge: 1000*60 }).redirect('/')
 })
 
 router.get('/logout',(req, res)=>{
