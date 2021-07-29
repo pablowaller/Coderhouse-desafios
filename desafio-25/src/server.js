@@ -1,26 +1,34 @@
 const express = require('express')
 const morgan = require('morgan')
 const handlebars = require('express-handlebars')
-const initListeners = require('./listeners')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
+const MongoStore = require('connect-mongo')
 
+const initListeners = require('./listeners')
+const { MONGO_ATLAS_URL } = require ('./config/config.json')
 const app = express()
+
 const http = require('http').Server(app)
 const io = require('socket.io')(http)
+
+// Database Connection 
+require('./database/connection')
 
 //Session y coookies 
 
 app.use(session({
+
+  store: MongoStore.create({ 
+    mongoUrl: `${MONGO_ATLAS_URL}sesiones`,
+    ttl: 60 * 10 
+  }),
   secret: 'secreto',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
 }))
 
 app.use(cookieParser())
-
-require('./database/connection')
-
 app.use(morgan('tiny'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -35,24 +43,23 @@ app.engine('hbs',handlebars({
 app.set('view engine','hbs')
 app.set('views', __dirname + '/views');
 
-const isLogged = ((req,res,next)=>{
+
+//middleware Auth
+const isLogged = ( (req,res,next)=>{
   const isLogged =  Boolean(req.session.username)
-  const logged = req.cookies['logged']
-  console.log(logged)
-  if( !isLogged || !logged) return res.redirect('/auth')
+  if( !isLogged ) return res.redirect('/auth')
    next()
 })
-
-
 //Rutas 
 
 app.get('/',isLogged,(req,res)=>{
 
-  return res.cookie('logged',true,{ maxAge: 10000 }).render('main',{
+  return res.render('main',{
     layout: 'index',
-    isLogged: req.cookies['logged'] || false,
+    isLogged: Boolean(req.session.username),
     username: req.session.username
   })
+
 })
 
 app.use('/productos',require('./routes/productos'))
