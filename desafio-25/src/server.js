@@ -5,8 +5,9 @@ const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const MongoStore = require('connect-mongo')
 
+require('dotenv').config()
+
 const initListeners = require('./listeners')
-const { MONGO_ATLAS_URL } = require ('./config/config.json')
 const app = express()
 
 const http = require('http').Server(app)
@@ -20,7 +21,7 @@ require('./database/connection')
 app.use(session({
 
   store: MongoStore.create({ 
-    mongoUrl: `${MONGO_ATLAS_URL}sesiones`,
+    mongoUrl: `${process.env.MONGO_ATLAS_URL}/sesiones`,
     ttl: 60 * 10 
   }),
   secret: 'secreto',

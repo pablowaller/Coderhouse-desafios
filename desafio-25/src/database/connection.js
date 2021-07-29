@@ -1,10 +1,8 @@
 const mongoose = require ('mongoose')
-const url = require('../config/config.json').MONGO_URL
 
-const connection = mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true})
-
+const connection = mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.connection.on('connected', ()=> {
-    console.log('[Mongoose] - connected in:', url)
+    console.log('[Mongoose] - connected in:', process.env.MONGO_URL)
 })
 
 mongoose.connection.on('error', (err)=> {
