@@ -32,7 +32,7 @@ app.use(session({
   saveUninitialized: true,
 }))
 
-app.use(morgan('tiny'))
+app.use(morgan('dev'))
 
 app.use(cookieParser())
 app.use(express.json())
@@ -62,7 +62,6 @@ app.use('/api/productos', require('./routes/api/productos'))
 app.use('/api/auth', require('./routes/api/auth'))
 
 //Socket
-
 initListeners(io)
 
 // Middleware para manejar errores
