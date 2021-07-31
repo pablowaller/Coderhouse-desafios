@@ -1,9 +1,10 @@
 const express = require('express')
 const morgan = require('morgan')
-const handlebars = require('express-handlebars')
+const handlebars = require('express-handlebars')  
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const MongoStore = require('connect-mongo')
+const passport = require('passport')
 
 require('dotenv').config()
 
@@ -13,10 +14,12 @@ const app = express()
 const http = require('http').Server(app)
 const io = require('socket.io')(http)
 
-// Database Connection 
-require('./database/connection')
+//-- Database Connection 
+require('./config/db')
 
-//Session y coookies 
+//-- Passport Config
+require('./config/passport')(passport)
+//-- Session y coookies 
 
 app.use(session({
 
@@ -34,8 +37,13 @@ app.use(morgan('tiny'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-//Public folder + Handlebars
+//--Passport Middlewares 
+app.use(passport.initialize())
+app.use(passport.session())
 
+// ----- //
+
+//Public folder + Handlebars
 app.use(express.static(__dirname + '/public'))
 app.engine('hbs',handlebars({
   extname: '.hbs',
@@ -43,7 +51,6 @@ app.engine('hbs',handlebars({
 }))
 app.set('view engine','hbs')
 app.set('views', __dirname + '/views');
-
 
 //middleware Auth
 const isLogged = ( (req,res,next)=>{
@@ -53,8 +60,7 @@ const isLogged = ( (req,res,next)=>{
 })
 //Rutas 
 
-app.get('/',isLogged,(req,res)=>{
-
+app.get('/', isLogged, (req,res)=>{
   return res.render('main',{
     layout: 'index',
     isLogged: Boolean(req.session.username),
@@ -79,8 +85,6 @@ initListeners(io)
 app.use((error, req, res, next) => {
   res.status(error.code || 500).json({ error : error.message })
 })
-
-
 
 const PORT = 8080
 

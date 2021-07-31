@@ -1,11 +1,15 @@
 const express = require('express')
 const router = express.Router()
+const passport = require('passport')
 
-router.post('/login',(req, res)=>{
-    const username = req.body.username || undefined
-    if( !username) return res.status(400).json({message: 'No se envio el usuario'})
-    req.session.username = username
-    return res.redirect('/')
+router.post('/login',passport.authenticate('login'),(req, res)=>{
+    return res.json({ message: 'User Logged!', user: req.user})
+
+})
+
+router.post('/signup',passport.authenticate('signup'),(req, res)=>{
+    return res.json({ message: 'Created User!', user: req.user})
+    
 })
 
 router.get('/logout',(req, res)=>{
