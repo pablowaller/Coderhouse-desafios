@@ -19,8 +19,8 @@ require('./config/db')
 
 //-- Passport Config
 require('./config/passport')(passport)
-//-- Session y coookies 
 
+//-- Session y coookies 
 app.use(session({
 
   store: MongoStore.create({ 
@@ -32,8 +32,9 @@ app.use(session({
   saveUninitialized: true,
 }))
 
-app.use(cookieParser())
 app.use(morgan('tiny'))
+
+app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
@@ -41,7 +42,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(passport.initialize())
 app.use(passport.session())
 
-// ----- //
 
 //Public folder + Handlebars
 app.use(express.static(__dirname + '/public'))
@@ -52,26 +52,10 @@ app.engine('hbs',handlebars({
 app.set('view engine','hbs')
 app.set('views', __dirname + '/views');
 
-//middleware Auth
-const isLogged = ( (req,res,next)=>{
-  const isLogged =  Boolean(req.session.username)
-  if( !isLogged ) return res.redirect('/auth')
-   next()
-})
-//Rutas 
-
-app.get('/', isLogged, (req,res)=>{
-  return res.render('main',{
-    layout: 'index',
-    isLogged: Boolean(req.session.username),
-    username: req.session.username
-  })
-
-})
-
+// Rutas -
+app.use('/',require('./routes/index'))
 app.use('/productos',require('./routes/productos'))
 app.use('/auth',require('./routes/auth'))
-
 
 //Rutas API
 app.use('/api/productos', require('./routes/api/productos'))
