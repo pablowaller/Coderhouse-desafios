@@ -13,12 +13,9 @@ router.post('/signup',passport.authenticate('signup', { failureRedirect: '/auth/
 })
 
 router.get('/logout',(req, res)=>{
-    const username = req.session.username
-    req.session.destroy(err => {
-        if (!err) return res.render('logout',{ layout: 'index', username: username })
-
-        else res.send({ status: 'Logout ERROR', body: err })
-    })
+    const username = req.user.username
+    req.logout();
+    res.render('logout',{ layout: 'index', username: username })
 })
 
 module.exports = router
