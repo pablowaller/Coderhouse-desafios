@@ -2,14 +2,14 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 
-router.post('/login',passport.authenticate('login'),(req, res)=>{
-    return res.json({ message: 'User Logged!', user: req.user})
-
+router.post('/login',passport.authenticate('login',{ failureRedirect: '/auth/failLogin'}),(req, res)=>{
+    res.redirect('/')
 })
 
-router.post('/signup',passport.authenticate('signup'),(req, res)=>{
-    return res.json({ message: 'Created User!', user: req.user})
-    
+router.post('/signup',passport.authenticate('signup', { failureRedirect: '/auth/failSignUp'}),(req, res)=>{
+    //return res.json({ message: 'Created User!', user: req.user})
+    res.redirect('/')
+
 })
 
 router.get('/logout',(req, res)=>{
