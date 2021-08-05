@@ -1,17 +1,19 @@
 <div class="row justify-content-center">
         <div class="col-md-6">
                 <h2 style="text-align: center">Login</h2>
-
-            <form action="/api/auth/login" id="products-form" method="POST">
-                <div class="form-group">
-                    <label for="username">Username: </label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" />
-                </div>
-                <div class="form-group">
-                    <label for="password">Password: </label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="password" />
-                </div>
-                <button class="btn btn-dark btn-block">Iniciar Sesion</button>
-            </form>
+            <a class="facebook-icon" href="/auth/facebook"><img  src="/icons/facebook-icon.svg">Ingresar con Facebook</a>
         </div>
-    </div>
+</div>
+
+<style>
+    .facebook-icon{
+        display:flex;
+        flex-direction: column;
+        
+    }
+    
+    .facebook-icon img {
+
+        height: 5rem;
+    }
+</style>

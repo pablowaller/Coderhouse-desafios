@@ -22,7 +22,6 @@ require('./config/passport')(passport)
 
 //-- Session y coookies 
 app.use(session({
-
   store: MongoStore.create({ 
     mongoUrl: `${process.env.MONGO_ATLAS_URL}/sesiones`,
     ttl: 60 * 10 

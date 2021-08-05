@@ -1,20 +1,32 @@
 const LocalStrategy = require('passport-local').Strategy
+const FacebookStrategy = require('passport-facebook').Strategy
 const User = require('../models/User')
 
 module.exports = ( passport ) => {
 
     passport.serializeUser(function (user, done) {
-        done(null, user._id);
+        done(null, user);
       });
-      
-      passport.deserializeUser(function (id, done) {
+    
+    passport.deserializeUser(function (id, done) {
         User.findById(id, function (err, user) {
           done(err, user);
         });
       });
       
-
-
+    
+    passport.use(new FacebookStrategy({
+        clientID: process.env.FACEBOOK_CLIENT_ID,
+        clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+        callbackURL:'/auth/facebook/callback',
+        profileFields: ['id','displayName','photos','emails'],
+        scope:['email']
+    }, function(accessToken, refreshToken, profile, done){
+        console.log(profile);
+        let userProfile = profile
+        return done(null,userProfile)
+    }))
+    
     passport.use('signup',new LocalStrategy({
     },
         async (username,password,done) => {
