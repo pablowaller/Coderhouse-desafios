@@ -26,12 +26,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="http://localhost:8080/productos/vista">Product List</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:8080/auth/login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:8080/auth/signup">SignUp</a>
-                    </li>
+                 
         </ul>
     </div>
         
@@ -42,9 +37,17 @@
      
         
    {{#if isLogged }}
-   <div class="mt-2 d-flex justify-content-around">
-        <h2>Bienvenido {{username}}</h2>
-        <a class="btn btn-danger" href="/api/auth/logout">Cerrar Sesion</a>
+   <div class="row mt-2  justify-content-around">
+       <div class="col-12 d-flex justify-content-around align-items-center">
+        <div class="d-flex align-items-center">
+            <img src={{ user.photo}} class="rounded-circle mr-2" alt="profile-photo"/>
+                <p class="fs-3"> {{ user.fullName}}</p>
+         </div>
+          <a class="btn btn-outline-danger" href="/api/auth/logout">Logout</a>
+       </div>
+      
+       
+       
    </div>
     {{/if}} 
     <div class="container mt-3">
