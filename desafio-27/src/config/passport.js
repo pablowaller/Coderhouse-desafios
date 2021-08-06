@@ -8,10 +8,8 @@ module.exports = ( passport ) => {
         done(null, user);
       });
     
-    passport.deserializeUser(function (id, done) {
-        User.findById(id, function (err, user) {
-          done(err, user);
-        });
+    passport.deserializeUser(function (user, done) {
+        done(null, user);
       });
       
     
@@ -21,10 +19,15 @@ module.exports = ( passport ) => {
         callbackURL:'/auth/facebook/callback',
         profileFields: ['id','displayName','photos','emails'],
         scope:['email']
+
     }, function(accessToken, refreshToken, profile, done){
-        console.log(profile);
-        let userProfile = profile
-        return done(null,userProfile)
+        let user = {
+            fullName: profile.displayName,
+            email: profile.emails[0].value,
+            photo: profile.photos[0].value
+        }
+        console.log(user);
+        return done(null,user)
     }))
     
     passport.use('signup',new LocalStrategy({
