@@ -6,7 +6,7 @@ router.get('/', isAuth, (req,res)=>{
     return res.render('main',{
       layout: 'index',
       isLogged: req.isAuthenticated() ,
-      username: req.user.username
+      user: req.user
     })
   
 })
