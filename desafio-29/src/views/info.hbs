@@ -1,0 +1,18 @@
+<div class="jumbotron">
+<h1> Info</h1>
+   
+    <p>Argumentos de entrada: {{info.argvs}}</p>
+    <p>Nombre de la plataforma: {{info.so}}</p>
+    <p>Version de Node.Js: {{info.nodeVersion}}</p>  
+    <p>Uso de memoria:
+        <ul>
+            <li class="text-success">Rss: {{info.memoryUse.rss}}</li> 
+            <li class="text-success">HeapTotal: {{info.memoryUse.heapTotal}}</li> 
+            <li class="text-success">HeapUsed: {{info.memoryUse.heapUsed}}</li> 
+            <li class="text-success">external: {{info.memoryUse.external}}</li> 
+        </ul>
+         </p>  
+    <p>Path de ejecucion: {{info.path}}</p>
+    <p>ProcessId: {{info.processId}}</p> 
+    <p>Carpeta Corriente: {{info.folder}}</p>
+</div>
