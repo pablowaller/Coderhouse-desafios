@@ -6,7 +6,7 @@ Se debia modificar el ultimo proyecto, reemplazando el login local por la estrat
 :point_right: Se modifico el serialize para guardar la respuesta correspondiente en la sesion.
 :point_right: Se cambio la vista login agregando el enlace al auth de facebook para la redireccion.
 
-Se debe crear `.env` con las variables mostradas en `.env.example`
+Se debe crear `.env` con las variables mostradas en `.env.example`.  
 Para ejecutar en local `npm run dev`.
 
 > Curso de Programacion Backend Coderhouse
