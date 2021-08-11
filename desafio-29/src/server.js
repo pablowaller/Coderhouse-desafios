@@ -65,8 +65,9 @@ initListeners(io)
 
 const PORT = process.argv[2] ||  8080
 
+
 const server = http.listen(PORT, () => {
-  console.log(`servidor escuchando en http://localhost:${PORT}`)
+  console.log(`servidor escuchando en http://localhost:${PORT} || PID WORKER ${process.pid}`, )
 })
 
 server.on('error', error => {
