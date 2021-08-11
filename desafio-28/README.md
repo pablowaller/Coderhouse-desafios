@@ -17,10 +17,10 @@ Crear un ruta /randoms que permite calcular una cant de numeros aleatorios de 1 
 
 ---
 
-:point_right: Se crearon las dos rutas, info y randoms dentro de las rutas indices ( `/index.routes`).
+:point_right: Se crearon las dos rutas, info y randoms dentro de las rutas indices ( `/index.routes`).  
 :point_right: En la funcion de randoms se implemento la funcion fork.
 
-Se debe crear `.env` con las variables mostradas en `.env.example`
+Se debe crear `.env` con las variables mostradas en `.env.example`.  
 Para ejecutar en local `npm run dev`.
 
 > Curso de Programacion Backend Coderhouse
