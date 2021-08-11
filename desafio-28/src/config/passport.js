@@ -2,6 +2,12 @@ const LocalStrategy = require('passport-local').Strategy
 const FacebookStrategy = require('passport-facebook').Strategy
 const User = require('../models/User')
 
+const FACEBOOK_CLIENT_ID = process.argv[3] || process.env.FACEBOOK_CLIENT_ID
+const FACEBOOK_CLIENT_SECRET = process.argv[4] || process.env.FACEBOOK_CLIENT_SECRET
+
+console.log('Using Facebook_Client_Id: ', FACEBOOK_CLIENT_ID )
+console.log('Using Facebook_Client_Secret: ', FACEBOOK_CLIENT_SECRET )
+
 module.exports = ( passport ) => {
 
     passport.serializeUser(function (user, done) {
@@ -14,8 +20,8 @@ module.exports = ( passport ) => {
       
     
     passport.use(new FacebookStrategy({
-        clientID: process.env.FACEBOOK_CLIENT_ID,
-        clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+        clientID: FACEBOOK_CLIENT_ID,
+        clientSecret: FACEBOOK_CLIENT_SECRET,
         callbackURL:'/auth/facebook/callback',
         profileFields: ['id','displayName','photos','emails'],
         scope:['email']

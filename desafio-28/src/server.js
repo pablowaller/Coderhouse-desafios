@@ -52,23 +52,18 @@ app.set('view engine','hbs')
 app.set('views', __dirname + '/views');
 
 // Rutas -
-app.use('/',require('./routes/index'))
-app.use('/productos',require('./routes/productos'))
-app.use('/auth',require('./routes/auth'))
+app.use('/',require('./routes/index.routes'))
+app.use('/productos',require('./routes/productos.routes'))
+app.use('/auth',require('./routes/auth.routes'))
 
 //Rutas API
-app.use('/api/productos', require('./routes/api/productos'))
-app.use('/api/auth', require('./routes/api/auth'))
+app.use('/api/productos', require('./routes/api/productos.routes'))
+app.use('/api/auth', require('./routes/api/auth.routes'))
 
 //Socket
 initListeners(io)
 
-// Middleware para manejar errores
-app.use((error, req, res, next) => {
-  res.status(error.code || 500).json({ error : error.message })
-})
-
-const PORT = 8080
+const PORT = process.argv[2] ||  8080
 
 const server = http.listen(PORT, () => {
   console.log(`servidor escuchando en http://localhost:${PORT}`)
