@@ -59,7 +59,7 @@ app.use('/auth',require('./routes/auth.routes'))
 //Rutas API
 app.use('/api/productos', require('./routes/api/productos.routes'))
 app.use('/api/auth', require('./routes/api/auth.routes'))
-
+ 
 //Socket
 initListeners(io)
 
@@ -67,7 +67,7 @@ const PORT = process.argv[2] ||  8080
 
 
 const server = http.listen(PORT, () => {
-  console.log(`servidor escuchando en http://localhost:${PORT} || PID WORKER ${process.pid}`, )
+  console.log(`servidor escuchando en http://localhost:${PORT} || PID ${process.pid}`, )
 })
 
 server.on('error', error => {
