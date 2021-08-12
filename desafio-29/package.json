@@ -5,12 +5,18 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/server.js",
-    "dev": "nodemon  ./src/index.js"
+    "dev": "nodemon  ./src/index.js",
+    "forever-fork": "forever start ./src/index.js",
+    "forever-fork-watch": "forever start -w ./src/index.js",
+    "forever-cluster": "forever start ./src/index.js 8081 id secret CLUSTER",
+    "forever-cluster-watch": "forever start -w ./src/index.js  8081 id secret CLUSTER",
+    "PM2-fork":"pm2 start ./src/index.js --name='ServidorFork' -- 8081",
+    "PM2-cluster":"pm2 start ./src/index.js --name='ServidorCluster' -i max -- 8082"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.0.1",
+    "bcrypt": "^5.0.1", 
     "connect-mongo": "^4.4.1",
     "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
