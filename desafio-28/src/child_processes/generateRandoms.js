@@ -5,6 +5,7 @@ const genRandom = ()=>{
 const getRandoms = (cant)=>{
     let numbers = []
     let i = 0
+    console.log('randoms')
 
     while(cant > i){
       let randomNumber = genRandom()
@@ -18,11 +19,12 @@ const getRandoms = (cant)=>{
     }
   
     numbers.sort((a, b) => a.numero - b.numero)
-  
+    console.log(numbers)
+
     return numbers
 }
 
-process.on('start', cant => {
+process.on('message', cant => {
     const numbers = getRandoms(cant)
     process.send(numbers)
 })

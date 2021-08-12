@@ -35,8 +35,8 @@ router.get('/randoms',(req,res)=>{
   const cantidad = req.query.cant || 100000000
   const computo = fork('./src/child_processes/generateRandoms.js')
   computo.send(cantidad)
-  computo.on('start',numbers => {
-    res.json({ numbers })
+  computo.on('message',numbers => {
+    return res.json({ numbers })
   })
 })
 
