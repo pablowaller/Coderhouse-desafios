@@ -2,11 +2,10 @@ const LocalStrategy = require('passport-local').Strategy
 const FacebookStrategy = require('passport-facebook').Strategy
 const User = require('../models/User')
 
-const FACEBOOK_CLIENT_ID = process.argv[3] || process.env.FACEBOOK_CLIENT_ID
+const FACEBOOK_CLIENT_ID = process.argv[3]  ||  process.env.FACEBOOK_CLIENT_ID
 const FACEBOOK_CLIENT_SECRET = process.argv[4] || process.env.FACEBOOK_CLIENT_SECRET
 
-console.log('Using Facebook_Client_Id: ', FACEBOOK_CLIENT_ID )
-console.log('Using Facebook_Client_Secret: ', FACEBOOK_CLIENT_SECRET )
+console.log(`Using FB CLIENT / SECRET: ${FACEBOOK_CLIENT_ID} ${FACEBOOK_CLIENT_SECRET}`)
 
 module.exports = ( passport ) => {
 
