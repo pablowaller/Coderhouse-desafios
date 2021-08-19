@@ -21,6 +21,8 @@
 
 - Las rutas /info y /randoms utilizan el usptream node_app como proxy para realizar el balanceo de carga correspondiente.
 
+**Para realizar la prueba se iniciaron las dos instancias con los scripts creados y se ejecuto el servidor nginx las cuales permite el acceso a los endpoints requeridos desde el puerto 80.**
+
 ---
 
 Se debe crear `.env` con las variables mostradas en `.env.example`.  
