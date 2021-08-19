@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node ./src/server.js",
     "dev": "nodemon  ./src/index.js",
-    "PM2-fork": "pm2 start ./src/index.js --name='ServidorFork' --watch -- 8081",
-    "PM2-cluster": "pm2 start ./src/index.js --name='ServidorCluster' -i max --watch -- 8082"
+    "PM2-fork": "pm2 start ./src/index.js  --name='ServidorFork' --watch  -- 8081 false false FORK ",
+    "PM2-cluster": "pm2 start ./src/index.js --name='ServidorCluster' --watch -- 8082 false false CLUSTER"
   },
   "author": "",
   "license": "ISC",
