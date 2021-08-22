@@ -1,4 +1,5 @@
 const productModel = require('../models/Producto')
+const { logger, loggerError, loggerWarn } = require('../logger/config')
 
 class ProductoController {
   constructor(model) {
@@ -13,9 +14,11 @@ class ProductoController {
       if(!id){
         const prods = await productModel.getAll()
         if (prods.length === 0) {
+          
            res.status(404).json({ error: 'No hay productos cargados' })
         }
-    
+        
+        logger.info('Se retornaron productos')
         return res.json(prods)
       } 
 
@@ -29,6 +32,7 @@ class ProductoController {
 
     }catch(err){
       res.status(500).json({error: err})
+      loggerError.error(err)
     }
   }
 
@@ -43,6 +47,7 @@ class ProductoController {
       res.json(producto)
     }catch(err){
       res.status(500).json({error: err})
+      loggerError.error(err.message)
     }
   }
 
@@ -59,8 +64,11 @@ class ProductoController {
   
       const producto = await productModel.update( (req.params.id), data)
   
-      if(producto == null || producto == undefined)
+      if(producto == null || producto == undefined){
+        loggerWarn.warn('No se encontro el producto')
         return res.status(404).json({ code: 404, message: 'No se encontro el producto' })
+
+      }
   
       return res.status(200).json(producto)
       
@@ -74,8 +82,11 @@ class ProductoController {
     try{
       const producto = await productModel.delete(req.params.id)
 
-      if(producto == null || producto == undefined)
-      return res.status(404).json({ code: 404, message: 'No se encontro el producto' })
+      if(producto == null || producto == undefined){
+        loggerWarn.warn(`No se encuentra el producto con id ${req.params.id}`)
+        return res.status(404).json({ code: 404, message: 'No se encontro el producto' })
+
+      }
   
     return res.status(200).json({ message:"Se ha eliminado el producto",producto})
       
@@ -86,4 +97,4 @@ class ProductoController {
 }
 
 // exporto una instancia de la clase
-module.exports = new ProductoController()
+module.exports = new ProductoController(productModel)
