@@ -14,7 +14,7 @@ Elegir un logger e implementarlo con el siguiente criterio en un modulo a elecci
 
 Se aplico el middleware gzip para la compresion.
 
-![Image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/tree/main/desafio-31/imgCompression/diferencia.png)
+![Screenshot](diferencia.png)
 
 Se creo la configuracion del logger winston dentro de la carpeta /logger.  
 Para poder separar los niveles se implementaron tres instancias de winston:
