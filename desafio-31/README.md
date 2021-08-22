@@ -19,11 +19,11 @@ Se aplico el middleware gzip para la compresion.
 Se creo la configuracion del logger winston dentro de la carpeta /logger.  
 Para poder separar los niveles se implementaron tres instancias de winston:
 
-logger = Registra todos los niveles y los muestra por la misma
+logger = Registra todos los niveles y los muestra por la consola
 
-loggerWarn = Registra desde el nivel warn y los guarda en /logs/warn.log
+loggerWarn = Registra desde el nivel warn los guarda en /logs/warn.log y los muestra en consola.
 
-loggerError = Registra solo nivel error y los guarda en /logs/error.log
+loggerError = Registra solo nivel error los guarda en /logs/error.log y los muestra en consola.
 
 Se utilizaron estas tres instancias en server y en el controlador de Product.
 
