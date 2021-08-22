@@ -1,27 +1,29 @@
-## Desafio 30 - Servidor NGINX
+## Desafio 31 Loggers y Gzip
 
 ### Objetivos
 
-- Arrancar dos instancias del servidor con PM2 modo fork.
-  Instancia 1: Puerto 8081, parametro FORK. modo watch
-  Instancia 2: Puerto 8082, parametro CLUSTER. modo watch
+Se debia incorporar al proyecto la compresion gzip.
+Verificar sobre la ruta /info con y sin compresion la diferencia de bytes.  
+Elegir un logger e implementarlo con el siguiente criterio en un modulo a eleccion:
 
-- Configurar Nginx para que las rutas /info y randoms/ (puerto 80) se deriven a esos dos instancias, balanceando la carga para que la del modo cluster reciba cuatro veces mas trafico que la de modo fork.
-
-- Verificar correcto funcionamiento.
+- Loggear a todos los niveles por consola
+- Registrar solo los logs de warning a un archivo warn.log
+- Enviar solo los logs de error a un archivo error.log
 
 ---
 
-:point_right: Se crearon dos scripts:
+Se aplico el middleware gzip para la compresion.
 
-- `npm run PM2-fork`: Inicia el servidor en el puerto 8081 en modo Watch con el parametro 'FORK'.
-- `npm run PM2-cluster`: Inicia el servidor en el puerto 8082 en modo Watch con el parametro 'CLUSTER'.
+![Image text](./imgCompression/diferencia.png)
 
-:point_right: Se agrego nginx al root del proyecto. Se aplicaron las configuraciones correspondientes en `nginx.conf`.
+Se creo la configuracion del logger winston dentro de la carpeta /logger.
+Para poder separar los niveles se implementaron tres instancias de winston:
 
-- Las rutas /info y /randoms utilizan el usptream node_app como proxy para realizar el balanceo de carga correspondiente.
+logger = Registra todos los niveles y los muestra por la misma
 
-**Para realizar la prueba se iniciaron las dos instancias con los scripts creados y se ejecuto el servidor nginx las cuales permite el acceso a los endpoints requeridos desde el puerto 80.**
+loggerWarn = Registra desde el nivel warn y los guarda en /logs/warn.log
+
+loggerError = Registra solo nivel error y los guarda en /logs/error.log
 
 ---
 
