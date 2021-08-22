@@ -5,11 +5,15 @@ const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const MongoStore = require('connect-mongo')
 const passport = require('passport')
+const compression = require('compression')
+
+const { logger, loggerError } = require('./logger/config')
 
 require('dotenv').config()
 
 const initListeners = require('./listeners')
 const app = express()
+app.use(compression())
 
 const http = require('http').Server(app)
 const io = require('socket.io')(http)
@@ -67,9 +71,9 @@ const PORT = process.argv[2] ||  8080
 
 
 const server = http.listen(PORT, () => {
-  console.log(`servidor escuchando en http://localhost:${PORT} || PID ${process.pid}`, )
+ logger.info(`servidor escuchando en http://localhost:${PORT} || PID ${process.pid}`, )
 })
 
 server.on('error', error => {
-  console.log('error en el servidor:', error)
+  loggerError.error('error en el servidor:', error)
 })
