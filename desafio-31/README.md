@@ -14,9 +14,9 @@ Elegir un logger e implementarlo con el siguiente criterio en un modulo a elecci
 
 Se aplico el middleware gzip para la compresion.
 
-![Image text](./imgCompression/diferencia.png)
+![Image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/tree/main/desafio-31/imgCompression/diferencia.png)
 
-Se creo la configuracion del logger winston dentro de la carpeta /logger.
+Se creo la configuracion del logger winston dentro de la carpeta /logger.  
 Para poder separar los niveles se implementaron tres instancias de winston:
 
 logger = Registra todos los niveles y los muestra por la misma
@@ -24,6 +24,8 @@ logger = Registra todos los niveles y los muestra por la misma
 loggerWarn = Registra desde el nivel warn y los guarda en /logs/warn.log
 
 loggerError = Registra solo nivel error y los guarda en /logs/error.log
+
+Se utilizaron estas tres instancias en server y en el controlador de Product.
 
 ---
 
