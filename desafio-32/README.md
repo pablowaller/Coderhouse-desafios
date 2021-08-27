@@ -2,7 +2,12 @@
 
 ### Objetivos
 
+![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-31/consigna.PNG)
+![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-31/consigna2.PNG)
+
 ---
+
+Se hicieron los diferentes test de perfilamientos los cuales se encuentran en la carpeta /perfilamientos
 
 ---
 

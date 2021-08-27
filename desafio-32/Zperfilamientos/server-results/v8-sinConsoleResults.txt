@@ -1,0 +1,283 @@
+Statistical profiling result from v8-sinConsole.log, (5837 ticks, 1 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   4848   83.1%          C:\WINDOWS\SYSTEM32\ntdll.dll
+    931   15.9%          C:\Program Files\nodejs\node.exe
+      2    0.0%          C:\WINDOWS\System32\KERNEL32.DLL
+      1    0.0%          C:\WINDOWS\System32\KERNELBASE.dll
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      6    0.1%   10.9%  LazyCompile: *resolve path.js:130:10
+      5    0.1%    9.1%  LazyCompile: *parse C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      4    0.1%    7.3%  LazyCompile: *wrap C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:101:22
+      4    0.1%    7.3%  LazyCompile: *next C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:478:32
+      3    0.1%    5.5%  LazyCompile: *castChunk C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:52:19
+      2    0.0%    3.6%  RegExp: [ \t]+$
+      2    0.0%    3.6%  LazyCompile: *pushSource C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:881:34
+      2    0.0%    3.6%  LazyCompile: *next C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\router\index.js:176:16
+      2    0.0%    3.6%  LazyCompile: *anonymous C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:12:42
+      2    0.0%    3.6%  LazyCompile: *Module._load internal/modules/cjs/loader.js:704:24
+      1    0.0%    1.8%  RegExp: ^\.|this\b
+      1    0.0%    1.8%  RegExp: ^(?:\}\}\}\})
+      1    0.0%    1.8%  RegExp: ^(?:\{\{(~)?\{)
+      1    0.0%    1.8%  RegExp: ^(?:\{\{(~)?#>)
+      1    0.0%    1.8%  LazyCompile: *write buffer.js:1042:40
+      1    0.0%    1.8%  LazyCompile: *toNamespacedPath path.js:549:19
+      1    0.0%    1.8%  LazyCompile: *serializeString C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\bson\lib\bson\parser\serializer.js:28:31
+      1    0.0%    1.8%  LazyCompile: *serializeInto C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\bson\lib\bson\parser\serializer.js:674:43
+      1    0.0%    1.8%  LazyCompile: *readPackageScope internal/modules/cjs/loader.js:271:26
+      1    0.0%    1.8%  LazyCompile: *readFileSync fs.js:374:22
+      1    0.0%    1.8%  LazyCompile: *quotedString C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:118:38
+      1    0.0%    1.8%  LazyCompile: *popStack C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:960:30
+      1    0.0%    1.8%  LazyCompile: *opcode C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:347:26
+      1    0.0%    1.8%  LazyCompile: *normalizeString path.js:52:25
+      1    0.0%    1.8%  LazyCompile: *nextPart fs.js:1635:31
+      1    0.0%    1.8%  LazyCompile: *multiplication32 C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\faker\vendor\mersenne.js:88:29
+      1    0.0%    1.8%  LazyCompile: *isFileType fs.js:190:20
+      1    0.0%    1.8%  LazyCompile: *hidden internal/errors.js:285:25
+      1    0.0%    1.8%  LazyCompile: *get _stream_duplex.js:92:8
+      1    0.0%    1.8%  LazyCompile: *WhitespaceControl.Program C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\whitespace-control.js:19:48
+      1    0.0%    1.8%  LazyCompile: *PathExpression C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:289:42
+      1    0.0%    1.8%  LazyCompile: *Module._nodeModulePaths internal/modules/cjs/loader.js:533:37
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+     54    0.9%   98.2%  JavaScript
+      0    0.0%    0.0%  C++
+     34    0.6%   61.8%  GC
+   5782   99.1%          Shared libraries
+      1    0.0%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   4848   83.1%  C:\WINDOWS\SYSTEM32\ntdll.dll
+
+    931   15.9%  C:\Program Files\nodejs\node.exe
+    498   53.5%    C:\Program Files\nodejs\node.exe
+     80   16.1%      LazyCompile: ~wrapSafe internal/modules/cjs/loader.js:964:18
+     79   98.8%        LazyCompile: ~Module._compile internal/modules/cjs/loader.js:1017:37
+     79  100.0%          LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1072:37
+     69   87.3%            LazyCompile: ~Module.load internal/modules/cjs/loader.js:916:33
+     10   12.7%            LazyCompile: *Module._load internal/modules/cjs/loader.js:704:24
+      1    1.3%        LazyCompile: *Module._compile internal/modules/cjs/loader.js:1017:37
+      1  100.0%          LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1072:37
+      1  100.0%            LazyCompile: *Module._load internal/modules/cjs/loader.js:704:24
+     44    8.8%      LazyCompile: ~realpathSync fs.js:1650:22
+     37   84.1%        LazyCompile: ~toRealPath internal/modules/cjs/loader.js:343:20
+     35   94.6%          LazyCompile: ~tryFile internal/modules/cjs/loader.js:334:17
+     33   94.3%            LazyCompile: ~tryExtensions internal/modules/cjs/loader.js:350:23
+      2    5.7%            LazyCompile: ~tryPackage internal/modules/cjs/loader.js:288:20
+      2    5.4%          LazyCompile: ~Module._findPath internal/modules/cjs/loader.js:444:28
+      2  100.0%            LazyCompile: ~Module._resolveFilename internal/modules/cjs/loader.js:796:35
+      7   15.9%        LazyCompile: *Module._findPath internal/modules/cjs/loader.js:444:28
+      7  100.0%          LazyCompile: ~Module._resolveFilename internal/modules/cjs/loader.js:796:35
+      7  100.0%            LazyCompile: *Module._load internal/modules/cjs/loader.js:704:24
+     39    7.8%      LazyCompile: ~handleWriteReq internal/stream_base_commons.js:47:24
+     39  100.0%        LazyCompile: ~writeGeneric internal/stream_base_commons.js:143:22
+     39  100.0%          LazyCompile: ~Socket._writeGeneric net.js:759:42
+     39  100.0%            LazyCompile: ~Socket._write net.js:796:35
+     24    4.8%      C:\Program Files\nodejs\node.exe
+      2    8.3%        LazyCompile: ~wrapSafe internal/modules/cjs/loader.js:964:18
+      2  100.0%          LazyCompile: ~Module._compile internal/modules/cjs/loader.js:1017:37
+      2  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1072:37
+      2    8.3%        LazyCompile: ~collectionNamespace C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\connect-mongo\node_modules\mongodb\lib\core\wireprotocol\shared.js:98:29
+      1   50.0%          LazyCompile: ~writeCommand C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\connect-mongo\node_modules\mongodb\lib\core\wireprotocol\write_command.js:9:22
+      1  100.0%            LazyCompile: ~update C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\connect-mongo\node_modules\mongodb\lib\core\wireprotocol\index.js:8:26
+      1   50.0%          LazyCompile: ~prepareFindCommand C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\connect-mongo\node_modules\mongodb\lib\core\wireprotocol\query.js:69:28
+      1  100.0%            LazyCompile: ~query C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\connect-mongo\node_modules\mongodb\lib\core\wireprotocol\query.js:14:15
+      2    8.3%        LazyCompile: *quotedString C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:118:38
+      2  100.0%          LazyCompile: ~pushSource C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:881:34
+      1   50.0%            LazyCompile: ~appendEscaped C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:416:40
+      1   50.0%            LazyCompile: ~append C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:394:26
+      1    4.2%        LazyCompile: ~scopedId C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\ast.js:14:32
+      1  100.0%          LazyCompile: ~PathExpression C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:289:42
+      1  100.0%            LazyCompile: ~accept C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:101:26
+      1    4.2%        LazyCompile: ~resolve path.js:130:10
+      1  100.0%          LazyCompile: *toNamespacedPath path.js:549:19
+      1  100.0%            LazyCompile: ~stat internal/modules/cjs/loader.js:132:14
+      1    4.2%        LazyCompile: ~relative path.js:436:11
+      1  100.0%          LazyCompile: ~renderView C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express-handlebars\lib\express-handlebars.js:183:19
+      1  100.0%            LazyCompile: ~render C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\view.js:133:40
+      1    4.2%        LazyCompile: ~readPackage internal/modules/cjs/loader.js:240:21
+      1  100.0%          LazyCompile: ~readPackageScope internal/modules/cjs/loader.js:271:26
+      1  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1072:37
+      1    4.2%        LazyCompile: ~quotedString C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:118:38
+      1  100.0%          LazyCompile: ~pushSource C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:881:34
+      1  100.0%            LazyCompile: ~appendEscaped C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:416:40
+      1    4.2%        LazyCompile: ~parseOpts C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\@mapbox\node-pre-gyp\lib\node-pre-gyp.js:144:37
+      1  100.0%          LazyCompile: ~Run C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\@mapbox\node-pre-gyp\lib\node-pre-gyp.js:78:13
+      1  100.0%            LazyCompile: ~exports.find C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\@mapbox\node-pre-gyp\lib\pre-binding.js:17:24
+      1    4.2%        LazyCompile: ~next C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:478:32
+      1  100.0%          LazyCompile: ~lex C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:525:30
+      1  100.0%            LazyCompile: ~lex C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:295:25
+      1    4.2%        LazyCompile: ~isURLInstance internal/url.js:1422:23
+      1  100.0%          LazyCompile: ~fileURLToPath internal/url.js:1345:23
+      1  100.0%            LazyCompile: ~finalizeEsmResolution internal/modules/cjs/loader.js:886:31
+      1    4.2%        LazyCompile: ~header C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\response.js:754:29
+      1  100.0%          LazyCompile: ~contentType C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\response.js:594:32
+      1  100.0%            LazyCompile: ~send C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\response.js:107:25
+      1    4.2%        LazyCompile: ~get port C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\mongodb\lib\core\sdam\server_description.js:124:11
+      1  100.0%          LazyCompile: ~get host C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\mongodb\lib\core\sdam\server_description.js:119:11
+      1  100.0%            LazyCompile: ~Server C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\mongodb\lib\core\sdam\server.js:83:14
+      1    4.2%        LazyCompile: ~expressInit C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\middleware\init.js:29:30
+      1  100.0%          LazyCompile: *handle C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%            LazyCompile: *next C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\router\index.js:176:16
+      1    4.2%        LazyCompile: ~checkInvalidHeaderChar _http_common.js:230:32
+      1  100.0%          LazyCompile: ~<anonymous> _http_outgoing.js:546:45
+      1  100.0%            LazyCompile: *hidden internal/errors.js:285:25
+      1    4.2%        LazyCompile: ~FastBuffer internal/buffer.js:951:1
+      1  100.0%          LazyCompile: ~alloc buffer.js:372:30
+      1  100.0%            LazyCompile: ~allocBuffer C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\bson\lib\bson\parser\utils.js:15:21
+      1    4.2%        LazyCompile: ~<anonymous> internal/per_context/primordials.js:23:10
+      1  100.0%          LazyCompile: ~Module._findPath internal/modules/cjs/loader.js:444:28
+      1  100.0%            LazyCompile: ~resolveMainPath internal/modules/run_main.js:8:25
+      1    4.2%        LazyCompile: ~<anonymous> C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\mongoose-legacy-pluralize\index.js:87:34
+      1  100.0%          C:\Program Files\nodejs\node.exe
+      1  100.0%            LazyCompile: ~pluralize C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\mongoose-legacy-pluralize\index.js:83:19
+      1    4.2%        LazyCompile: *parse C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      1  100.0%          LazyCompile: ~parseWithoutProcessing C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:33:32
+      1  100.0%            LazyCompile: ~parse C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:51:15
+      1    4.2%        LazyCompile: *compile C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1  100.0%          LazyCompile: ~compileChildren C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:805:44
+      1  100.0%            LazyCompile: *compile C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1    4.2%        LazyCompile: *appendEscaped C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:416:40
+      1  100.0%          LazyCompile: *compile C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1  100.0%            LazyCompile: ~compileChildren C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:805:44
+     20    4.0%      LazyCompile: ~stat internal/modules/cjs/loader.js:132:14
+     10   50.0%        LazyCompile: ~tryFile internal/modules/cjs/loader.js:334:17
+     10  100.0%          LazyCompile: ~tryExtensions internal/modules/cjs/loader.js:350:23
+     10  100.0%            LazyCompile: ~Module._findPath internal/modules/cjs/loader.js:444:28
+     10   50.0%        LazyCompile: ~Module._findPath internal/modules/cjs/loader.js:444:28
+     10  100.0%          LazyCompile: ~Module._resolveFilename internal/modules/cjs/loader.js:796:35
+     10  100.0%            LazyCompile: ~Module._load internal/modules/cjs/loader.js:704:24
+     10    2.0%      LazyCompile: ~readSync fs.js:555:18
+      7   70.0%        LazyCompile: ~tryReadSync fs.js:362:21
+      7  100.0%          LazyCompile: ~readFileSync fs.js:374:22
+      7  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1072:37
+      3   30.0%        LazyCompile: *readFileSync fs.js:374:22
+      3  100.0%          LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1072:37
+      3  100.0%            LazyCompile: *Module._load internal/modules/cjs/loader.js:704:24
+     10    2.0%      LazyCompile: ~closeSync fs.js:434:19
+     10  100.0%        LazyCompile: ~closeSync C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\graceful-fs\graceful-fs.js:72:24
+      8   80.0%          LazyCompile: ~readFileSync fs.js:374:22
+      8  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1072:37
+      2   20.0%          LazyCompile: *readFileSync fs.js:374:22
+      2  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1072:37
+      9    1.8%      LazyCompile: *compile C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      7   77.8%        LazyCompile: ~compileInput C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:507:24
+      7  100.0%          LazyCompile: ~ret C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:515:15
+      7  100.0%            LazyCompile: ~_renderTemplate C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express-handlebars\lib\express-handlebars.js:260:18
+      2   22.2%        LazyCompile: ~compileChildren C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:805:44
+      2  100.0%          LazyCompile: *compile C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      2  100.0%            LazyCompile: ~compileInput C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:507:24
+      8    1.6%      LazyCompile: ~compileForInternalLoader internal/bootstrap/loaders.js:265:27
+      6   75.0%        LazyCompile: ~nativeModuleRequire internal/bootstrap/loaders.js:298:29
+      1   16.7%          LazyCompile: ~setupPrepareStackTrace internal/bootstrap/node.js:251:32
+      1  100.0%            Eval: ~<anonymous> internal/bootstrap/node.js:1:1
+      1   16.7%          LazyCompile: ~get fs.js:2156:8
+      1  100.0%            C:\Program Files\nodejs\node.exe
+      1   16.7%          Eval: ~<anonymous> stream.js:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader internal/bootstrap/loaders.js:265:27
+      1   16.7%          Eval: ~<anonymous> internal/source_map/source_map_cache.js:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader internal/bootstrap/loaders.js:265:27
+      1   16.7%          Eval: ~<anonymous> internal/bootstrap/node.js:1:1
+      1   16.7%          Eval: ~<anonymous> buffer.js:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader internal/bootstrap/loaders.js:265:27
+      2   25.0%        LazyCompile: ~compileForPublicLoader internal/bootstrap/loaders.js:214:25
+      2  100.0%          LazyCompile: ~loadNativeModule internal/modules/cjs/helpers.js:31:26
+      2  100.0%            LazyCompile: ~Module._load internal/modules/cjs/loader.js:704:24
+      7    1.4%      LazyCompile: ~render C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express-handlebars\lib\express-handlebars.js:150:15
+      7  100.0%        C:\Program Files\nodejs\node.exe
+      7    1.4%      LazyCompile: *writeGeneric internal/stream_base_commons.js:143:22
+      7  100.0%        LazyCompile: ~Socket._writeGeneric net.js:759:42
+      7  100.0%          LazyCompile: ~Socket._write net.js:796:35
+      7  100.0%            LazyCompile: *Writable.write _stream_writable.js:258:36
+      7    1.4%      LazyCompile: *next C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:478:32
+      6   85.7%        LazyCompile: *parse C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      6  100.0%          LazyCompile: ~parseWithoutProcessing C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:33:32
+      6  100.0%            LazyCompile: ~parse C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:51:15
+      1   14.3%        LazyCompile: ~lex C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:525:30
+      1  100.0%          LazyCompile: *parse C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:269:30
+      1  100.0%            LazyCompile: ~parseWithoutProcessing C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:33:32
+      6    1.2%      LazyCompile: ~writevGeneric internal/stream_base_commons.js:118:23
+      6  100.0%        LazyCompile: ~Socket._writeGeneric net.js:759:42
+      6  100.0%          LazyCompile: ~Socket._writev net.js:791:36
+      6  100.0%            LazyCompile: ~doWrite _stream_writable.js:367:17
+      6    1.2%      LazyCompile: ~tryStatSync fs.js:337:21
+      6  100.0%        LazyCompile: ~readFileSync fs.js:374:22
+      6  100.0%          LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1072:37
+      6  100.0%            LazyCompile: ~Module.load internal/modules/cjs/loader.js:916:33
+      6    1.2%      LazyCompile: *readPackageScope internal/modules/cjs/loader.js:271:26
+      4   66.7%        LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1072:37
+      3   75.0%          LazyCompile: ~Module.load internal/modules/cjs/loader.js:916:33
+      3  100.0%            LazyCompile: ~Module._load internal/modules/cjs/loader.js:704:24
+      1   25.0%          LazyCompile: *Module._load internal/modules/cjs/loader.js:704:24
+      1  100.0%            LazyCompile: ~Module.require internal/modules/cjs/loader.js:944:36
+      2   33.3%        LazyCompile: ~trySelf internal/modules/cjs/loader.js:391:17
+      2  100.0%          LazyCompile: ~Module._resolveFilename internal/modules/cjs/loader.js:796:35
+      2  100.0%            LazyCompile: *Module._load internal/modules/cjs/loader.js:704:24
+      5    1.0%      LazyCompile: ~slice buffer.js:608:12
+      4   80.0%        LazyCompile: ~toString buffer.js:776:46
+      3   75.0%          LazyCompile: ~readFileSync fs.js:374:22
+      3  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1072:37
+      1   25.0%          LazyCompile: *readFileSync fs.js:374:22
+      1  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1072:37
+      1   20.0%        LazyCompile: *toString buffer.js:776:46
+      1  100.0%          LazyCompile: ~deserializeObject C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\bson\lib\bson\parser\deserializer.js:43:33
+      1  100.0%            LazyCompile: ~deserializeObject C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\bson\lib\bson\parser\deserializer.js:43:33
+      5    1.0%      LazyCompile: ~openSync fs.js:467:18
+      5  100.0%        LazyCompile: ~readFileSync fs.js:374:22
+      5  100.0%          LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:1072:37
+      5  100.0%            LazyCompile: ~Module.load internal/modules/cjs/loader.js:916:33
+      5    1.0%      LazyCompile: *wrap C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\code-gen.js:101:22
+      3   60.0%        LazyCompile: *resolvePath C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:492:36
+      2   66.7%          LazyCompile: *lookupOnContext C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:448:44
+      2  100.0%            LazyCompile: *compile C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1   33.3%          LazyCompile: ~lookupOnContext C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:448:44
+      1  100.0%            LazyCompile: *compile C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      1   20.0%        LazyCompile: ~push C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:868:22
+      1  100.0%          LazyCompile: ~replaceStack C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:892:38
+      1  100.0%            LazyCompile: ~resolvePath C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:492:36
+      1   20.0%        LazyCompile: *push C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:868:22
+      1  100.0%          LazyCompile: ~resolvePossibleLambda C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:527:56
+      1  100.0%            LazyCompile: *compile C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:73:28
+      5    1.0%      LazyCompile: *nextTick internal/process/task_queues.js:101:18
+      2   40.0%        LazyCompile: *readableAddChunk _stream_readable.js:231:26
+      2  100.0%          LazyCompile: ~Readable.push _stream_readable.js:222:35
+      1   50.0%            LazyCompile: ~writeCommand C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\connect-mongo\node_modules\mongodb\lib\cmap\message_stream.js:51:15
+      1   50.0%            LazyCompile: ~onStreamRead internal/stream_base_commons.js:165:22
+      1   20.0%        LazyCompile: ~write_ _http_outgoing.js:678:16
+      1  100.0%          LazyCompile: ~write _http_outgoing.js:660:49
+      1  100.0%            LazyCompile: ~writetop C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express-session\index.js:270:24
+      1   20.0%        LazyCompile: ~onwrite _stream_writable.js:394:17
+      1  100.0%          LazyCompile: ~processIncomingData C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\connect-mongo\node_modules\mongodb\lib\cmap\message_stream.js:103:29
+      1  100.0%            LazyCompile: ~_write C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\connect-mongo\node_modules\mongodb\lib\cmap\message_stream.js:38:9
+      1   20.0%        LazyCompile: ~checkOut C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\connect-mongo\node_modules\mongodb\lib\cmap\connection_pool.js:212:11
+      1  100.0%          LazyCompile: ~withConnection C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\connect-mongo\node_modules\mongodb\lib\cmap\connection_pool.js:341:17
+      1  100.0%            LazyCompile: ~executeWriteOperation C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\connect-mongo\node_modules\mongodb\lib\core\sdam\server.js:450:31
+      5    1.0%      LazyCompile: *next C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\router\index.js:176:16
+      2   40.0%        LazyCompile: ~handle C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\router\index.js:136:31
+      2  100.0%          LazyCompile: ~router C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\router\index.js:46:18
+      2  100.0%            LazyCompile: *handle C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\router\layer.js:86:49
+      1   20.0%        LazyCompile: ~logger C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\morgan\index.js:103:26
+      1  100.0%          LazyCompile: *handle C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%            LazyCompile: *next C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\router\index.js:176:16
+      1   20.0%        LazyCompile: ~cookieParser C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\cookie-parser\index.js:44:32
+      1  100.0%          LazyCompile: ~handle C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%            LazyCompile: *next C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express\lib\router\index.js:176:16
+      1   20.0%        LazyCompile: ~<anonymous> C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\express-session\index.js:485:38
+      1  100.0%          LazyCompile: ~<anonymous> C:\Users\Alejandro\Desktop\Coderhouse\backend\desafios\desafio-32\node_modules\connect-mongo\build\main\lib\MongoStore.js:199:10
+      1  100.0%            C:\Program Files\nodejs\node.exe
+

@@ -31,16 +31,19 @@ router.get('/info',(req,res)=>{
     folder: process.cwd(),
     numCPUs: numCPUs
   }
+  if(req.query.console){
+    console.log(info)
+  }
   return res.render('info',{ layout:'index', info  } )
 })
 
 router.get('/randoms',(req,res)=>{
   const cantidad = req.query.cant || 100000000
-  const computo = fork('./src/child_processes/generateRandoms.js')
+ /*  const computo = fork('./src/child_processes/generateRandoms.js')
   computo.send(cantidad)
   computo.on('message',numbers => {
     return res.json({ numbers })
-  })
+  }) */
 })
 
 module.exports = router

@@ -1,0 +1,33 @@
+
+// Info sin consoleLog
+curl -X GET "http://localhost:8080/info"
+
+// Info con consoleLog
+curl -X GET 'http://localhost:8080/info?console=true
+
+//Ejecutar servidor en modo prof 
+
+node --prof src/index.js
+
+//Test de Carga con Artillery
+
+artillery quick --count 20 -n 50 "http://localhost:8080/info" > result_sinConsole.txt
+artillery quick --count 20 -n 50 "http://localhost:8080/info?console=true" > result_ConConsole.txt
+
+//Parsear resultados con --Prof-Process
+
+node --prof-process v8-sinConsole.log > v8-sinConsoleResults.txt
+node --prof-process v8-conConsole.log > v8-conConsoleResults.txt
+
+
+----
+node --inspect src/index.js
+
+Instale autocanon en global
+autocannon -c 100 -d 20 "http://localhost:8080/info"
+autocannon -c 100 -d 20 "http://localhost:8080/info?console=true"
+
+
+0x -P 'autocannon -c 100 -d 20 "http://localhost:8080/info"' src/index.js
+
+0x -P 'autocannon -c 100 -d 20 "http://localhost:8080/info?console=true"' src/index.js

@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "autocannon": "^7.4.0",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.4.1",
     "cookie-parser": "^1.4.5",
