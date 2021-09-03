@@ -1,5 +1,4 @@
-const nodemailer = require ('nodemailer');
-
+const nodemailer = require('nodemailer')
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.ethereal.email',
@@ -10,10 +9,20 @@ const transporter = nodemailer.createTransport({
     }
 })
 
-const sendMail = (to,subject,text) =>{
+sendFacebookEmail = (user,event) =>{
+    let subject;
+    let text;
+
+    if(event == 'login'){
+        subject = `${user.fullName} iniciaste sesion con facebook.`
+        text = `${user.fullName} iniciaste sesion ${new Date().toLocaleString()}`
+    }else{
+        subject = `${user.fullName} ha cerrado sesión`
+        text = `${user.fullName} ha cerrado sesion ${new Date().toLocaleString()}`
+    }
     transporter.sendMail({
         from: 'Servidor Node.js',
-        to: to,
+        to: user.email,
         subject: subject,
         text: text
     },(err, info) => {
@@ -25,10 +34,7 @@ const sendMail = (to,subject,text) =>{
     })
 }
 
-const sendFacebookEmail = (user,event)=>{
-    const subject = event == 'login' ? `${user.fullName} inicio sesion con facebook.` : `${user.fullName} ha cerrado sesión`
-    const text = event == 'login' ? `${user.fullName} ha iniciado sesion ${new Date().toLocaleString()}` : `${user.fullName} ha cerrado sesion ${new Date().toLocaleString()}`
-    sendMail(user.email,subject,text)
-}
+
+
 
 module.exports = { sendFacebookEmail }

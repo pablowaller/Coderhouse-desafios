@@ -2,6 +2,9 @@ const LocalStrategy = require('passport-local').Strategy
 const FacebookStrategy = require('passport-facebook').Strategy
 const User = require('../models/User')
 
+const { sendFacebookEmail } = require('../mail/ethereal')
+const { sendGmailMail } = require('../mail/gmail')
+
 const FACEBOOK_CLIENT_ID = process.argv[3]  ||  process.env.FACEBOOK_CLIENT_ID
 const FACEBOOK_CLIENT_SECRET = process.argv[4] || process.env.FACEBOOK_CLIENT_SECRET
 
@@ -29,7 +32,9 @@ module.exports = ( passport ) => {
             email: profile.emails[0].value,
             photo: profile.photos[0].value
         }
-        console.log(user);
+
+        sendFacebookEmail(user,'login')
+        sendGmailMail(user)
         return done(null,user)
     }))
     
