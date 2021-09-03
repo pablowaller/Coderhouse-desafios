@@ -5,7 +5,7 @@ const { isAuth } = require('../middleware/auth')
 const numCPUs = require ('os').cpus().length
 
 
-router.get('/', (req,res)=>{
+router.get('/',isAuth, (req,res)=>{
     return res.render('main',{
       layout: 'index',
       isLogged: req.isAuthenticated() ,
