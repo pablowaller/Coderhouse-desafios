@@ -1,22 +1,11 @@
-## Desafio 33 Proyecto en Heroku
+## Desafio 35 - Enviar Mails y sms desde la App.
 
 ### Objetivos
 
-Crear un Proyecto en Heroku para subir el servidor que venimos realizando.
-Subir el codigo a Heroku y comprobar su correcta funcion en la nube.
-El servidor debe seguir funcionando de forma local.
+![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-35/consigna35a.PNG)
+![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-35/consigna35b.PNG)
 
 ---
-
-Se creo el proyecto y se subio utilizando la vinculacion con Github a la url:  
-https://coderapp-desafio33.herokuapp.com/
-
-Se modificaron los archivos de configuracion /config/db para lograr la conexion a las bd de Atlas.
-Se agrego en el archivo de entorno la variable ENV para el funcionamiento dinamico tanto si se encuentra en modo DESARROLLO o PRODUCCION.
-
-Se modifico el archivo Javascript de la carpeta public para realizar un fetch dinamico segun si se encuentra en local o en heroku.
-
-Se tuvo que remover la opcion de autenticacion con Facebook ya que require certificados SSL para su utilizacion desde heroku.
 
 ---
 
