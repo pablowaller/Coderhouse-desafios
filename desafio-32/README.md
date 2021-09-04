@@ -2,8 +2,8 @@
 
 ### Objetivos
 
-![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-31/consigna.PNG)
-![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-31/consigna2.PNG)
+![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-32/consigna.PNG)
+![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-32/consigna2.PNG)
 
 ---
 
