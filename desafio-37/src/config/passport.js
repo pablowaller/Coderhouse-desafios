@@ -1,6 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy
 const FacebookStrategy = require('passport-facebook').Strategy
-const User = require('../models/User')
+const User = require('../schemas/UserSchema')
 
 const { sendFacebookEmail } = require('../mail/ethereal')
 const { sendGmailMail } = require('../mail/gmail')
@@ -42,7 +42,7 @@ module.exports = ( passport ) => {
     },
         async (username,password,done) => {
             try{
-                let user = await User.findOne({username: username})
+                let user = await User.getOneBy({username: username})
 
                 if (user) return done( null, false, console.log("message","User Already Exists"))
                 
@@ -62,7 +62,7 @@ module.exports = ( passport ) => {
 
             try{
 
-                let user = await User.findOne({username: username})
+                let user = await User.getOneBy({username: username})
 
                 if(!user) return done( null, false, console.log("message","User doesn't exist"))
 

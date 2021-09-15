@@ -1,22 +1,9 @@
-const messageMD = require ('../schemas/MessageSchema')
+const MensajeSchema = require ('../schemas/MessageSchema')
+const MongoCrud = require('./MongoCrud')
 
-class Mensaje{
-    async getAll(){
-        try{
-            let mensajes = await messageMD.find().lean()
-            return mensajes
-        } catch(err){  
-            throw err
-        }
-    }
-
-    async save(data){
-            try{
-                await messageMD.create(data)
-            }catch(err){
-                throw err
-            }
-        
+class Mensaje extends MongoCrud{
+    constructor(){
+        super(MensajeSchema)
     }
 }
 

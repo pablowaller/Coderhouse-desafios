@@ -1,19 +1,14 @@
-## Desafio 35 - Enviar Mails y sms desde la App.
+## Desafio 37 - Dividir en Capas el Proyecto
 
 ### Objetivos
 
-![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-35/consigna35a.PNG)
-![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-35/consigna35b.PNG)
+![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-37/consigna37.PNG)
 
 ---
 
-:point_right: Se instaló la libreria nodemailer para el envio de mails. Se creó la funcion _sendFacebookEmail_ dentro del archivo `/mail/ethereal` para enviar mails desde **ethereal**. Ésta función se la invocó en el archivo `config/passport` al realizar login y logout con la opción y el usuario correspondiente.
-
-:point_right: Se creó otra función similar para enviar mails desde **gmail** dentro de `/mail/gmail`.
-
-:point_right: Dentro de la carpeta `/sms/twilioSms` se construyó la función _sendAdminMessage_ para enviar mensajes de texto a un numero determinado dentro del archivo .env. Ésta se la invoca en el listener de los sockets al recibir la palabra 'Administrador' en la carpeta propia de los listener : `/listeners`.
-
-:point_right: Se agregarón nuevas variables en el archivo .env y .env.example.
+:point_right: Routing : Se mantuvo la capa de routeo dentro de la carpeta /routes, un archivo por cada modulo realizado, Auth, Products en la carpeta Api y se suma index en las carpeta general donde se encuentra el ruteo de vistas. En cada archivo se establecen las rutas, se aplican los middlewares necesarios y en ultima instancia se pasa la funcion del controlador especifico.
+:point_right: Controladores: Manipulan la request recibida ( los datos que recibe la peticion ), llaman al modelo necesario y segun la respuesta obtenida de este envian la respuesta que corresponda,
+:point_right: Logica de Negocio y Persistencia : Se incorpora dentro de los modelos en la carpeta '/models', heredan la funcionalidad de MongoCrud, a su vez permite que se le agregue nuevas funcionalidades requeridas. Utilizan los Schemas de Mongo dentro de la carpeta /schemas.
 
 ---
 

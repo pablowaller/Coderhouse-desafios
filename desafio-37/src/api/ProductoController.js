@@ -2,10 +2,6 @@ const productModel = require('../models/Producto')
 const { logger, loggerError, loggerWarn } = require('../logger/config')
 
 class ProductoController {
-  constructor(model) {
-    this.model = model
-  }
-
   async listar(req, res){
     try{
       const { id } = req.params
@@ -23,7 +19,7 @@ class ProductoController {
       } 
 
       //Obtener Uno
-      const producto = await productModel.get(id)
+      const producto = await productModel.getById(id)
   
       if (producto === undefined || producto === null) 
         return res.status(404).json({ code: 404, message: 'No se encontro el producto' })
@@ -97,4 +93,4 @@ class ProductoController {
 }
 
 // exporto una instancia de la clase
-module.exports = new ProductoController(productModel)
+module.exports = new ProductoController()
