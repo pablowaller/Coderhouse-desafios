@@ -2,7 +2,7 @@
 
 ### Objetivos
 
-![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-37/consigna37.PNG)
+![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-37/consigna-37.PNG)
 
 ---
 
