@@ -1,5 +1,5 @@
-const Producto = require('../models/Producto')
-const Mensaje = require('../models/Mensaje')
+const Producto = require('../services/Producto')
+const Mensaje = require('../services/Mensaje')
 
 const {  normalizeMessages } = require('../utils/normalizes')
 const { sendAdminMessage } = require('../sms/twilioSms')

@@ -1,13 +1,13 @@
 const express = require('express')
 const router = express.Router()
-const productModel = require('../models/Producto')
+const productService = require('../services/Producto')
 const faker = require('faker')
 faker.locale = "es";
 
 
 
 router.get('/vista',async (req,res)=>{
-    const productos = await productModel.getAll()
+    const productos = await productService.getAll()
     res.render('vista',
       { layout: 'index',
         productos: productos, 

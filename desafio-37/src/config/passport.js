@@ -1,6 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy
 const FacebookStrategy = require('passport-facebook').Strategy
-const User = require('../schemas/UserSchema')
+const User = require('../services/User')
 
 const { sendFacebookEmail } = require('../mail/ethereal')
 const { sendGmailMail } = require('../mail/gmail')

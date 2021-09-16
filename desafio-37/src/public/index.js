@@ -28,6 +28,8 @@ window.addEventListener('load',()=>{
         console.log(productos)
         document.querySelector('#productos').innerHTML = HTML
     })
+    const urlBase = window.location.href.split('/')
+    const url = `${urlBase[0]}//${urlBase[2]}`
 
     form.addEventListener('submit',(e)=>{
         e.preventDefault()
@@ -36,7 +38,9 @@ window.addEventListener('load',()=>{
             price :  document.getElementsByName('price')[0].value,
             thumbnail :  document.getElementsByName('thumbnail')[0].value,
         }
-        fetch(`${window.location.href}api/productos/guardar`,{ 
+      
+        
+        fetch(`${url}/api/productos/guardar`,{ 
             headers: {
                 'Content-Type': 'application/json'
             },
