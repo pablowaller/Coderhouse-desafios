@@ -6,9 +6,11 @@
 
 ---
 
-:point_right: Routing : Se mantuvo la capa de routeo dentro de la carpeta /routes, un archivo por cada modulo realizado, Auth, Products en la carpeta Api y se suma index en las carpeta general donde se encuentra el ruteo de vistas. En cada archivo se establecen las rutas, se aplican los middlewares necesarios y en ultima instancia se pasa la funcion del controlador especifico.
-:point_right: Controladores: Manipulan la request recibida ( los datos que recibe la peticion ), llaman al modelo necesario y segun la respuesta obtenida de este envian la respuesta que corresponda,
-:point_right: Logica de Negocio y Persistencia : Se incorpora dentro de los modelos en la carpeta '/models', heredan la funcionalidad de MongoCrud, a su vez permite que se le agregue nuevas funcionalidades requeridas. Utilizan los Schemas de Mongo dentro de la carpeta /schemas.
+:point_right: Routing : Se mantuvo la capa de routeo dentro de la carpeta /routes, un archivo por cada modulo realizado, Auth, Products en la carpeta Api y se suma index en las carpeta general donde se encuentra el ruteo de vistas. En cada archivo se establecen las rutas, se aplican los middlewares necesarios y en ultima instancia se pasa la funcion del controlador especifico.  
+
+:point_right: Controladores: Manipulan la request recibida ( los datos que recibe la peticion ), llaman al modelo necesario y segun la respuesta obtenida de este envian la respuesta que corresponda.  
+
+:point_right: Logica de Negocio y Persistencia : Se incorpora dentro de los modelos en la carpeta '/models', heredan la funcionalidad de MongoCrud, a su vez permite que se le agregue nuevas funcionalidades requeridas. Utilizan los Schemas de Mongo dentro de la carpeta /schemas.  
 
 ---
 
