@@ -40,7 +40,8 @@ class ProductoController {
         price,
         thumbnail
       })
-      res.json(producto)
+      
+      res.status(201).json(producto)
     }catch(err){
       res.status(500).json({error: err})
       loggerError.error(err.message)
