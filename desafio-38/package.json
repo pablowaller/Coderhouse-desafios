@@ -1,5 +1,5 @@
 {
-  "name": "desafio37",
+  "name": "desafio38",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -23,6 +23,7 @@
     "express-session": "^1.17.2",
     "faker": "^5.5.3",
     "graphql": "^15.5.3",
+    "mocha": "^9.1.1",
     "mongoose": "^5.13.2",
     "nodemailer": "^6.6.3",
     "normalizr": "^3.6.1",
