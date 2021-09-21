@@ -1,15 +1,17 @@
-## Desafio 39 - Client HTTP de PRUEBAS
+## Desafio 39 - Cliente HTTP de PRUEBAS
 
 ### Objetivos
 
-![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-38/consigna-38.PNG)
+![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-39/consigna-39.PNG)
 
 ---
 
-Se integro el graphql a traves de la ruta `/graphql`.
+Se incorporo al proyecto la carpeta /tests y el script dentro de package json para la ejecucion con mocha.
 
-Se implemento su funcionamiento en el archivo `graphql/index.js` el cual es llamado dentro de server.js.
-Se crearon las funciones y modelos necesarios, para la logica se uso el servicio ProductService, se hicieron las pruebas en la ruta `http://localhost:8080/graphql`.
+Se instalaron las dependencias supertest, chai como dependencias de desarrollo y mocha en global.
+
+Se creo dentro del archivo axios las funciones para comprobar el funcionamiento de las rutas api.
+Dentro de /api.productos.test.js se crearon las funciones de test correspondientes.
 
 ---
 
