@@ -1,6 +1,6 @@
 const {  graphqlHTTP } = require('express-graphql')
 const { buildSchema } = require('graphql')
-const ProductService = require('../services/Producto')
+const ProductService = require('../services/Product')
 
 const schema = buildSchema(`
     type Query {

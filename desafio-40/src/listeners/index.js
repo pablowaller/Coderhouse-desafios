@@ -1,5 +1,5 @@
-const Producto = require('../services/Producto')
-const Mensaje = require('../services/Mensaje')
+const Product = require('../services/Product')
+const Message = require('../services/Message')
 
 const {  normalizeMessages } = require('../utils/normalizes')
 const { sendAdminMessage } = require('../sms/twilioSms')
@@ -15,20 +15,20 @@ module.exports = io =>{
     io.on('error', err => console.log(err))
     io.on('connect', async (socket) =>{
       
-        socket.emit('productos',await Producto.getAll())
+        socket.emit('productos',await Product.getAll())
 
         socket.on('productos:update',async  () =>{
-          io.sockets.emit('productos',await Producto.getAll())
+          io.sockets.emit('productos',await Product.getAll())
           }
         )
             
-        socket.emit('mensajes', normalizeMessages(await Mensaje.getAll()))
+        socket.emit('mensajes', normalizeMessages(await Message.getAll()))
   
         socket.on('mensajes:nuevo', async msg => {
           try{
-            await Mensaje.save(msg)
+            await Message.save(msg)
 
-            io.sockets.emit('mensajes',normalizeMessages(await Mensaje.getAll()))
+            io.sockets.emit('mensajes',normalizeMessages(await Message.getAll()))
 
             if(msg.text.toUpperCase().includes('ADMINISTRADOR')){
               let sended = await sendAdminMessage(msg)

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const productService = require('../services/Producto')
+const productService = require('../services/Product')
 const faker = require('faker')
 faker.locale = "es";
 

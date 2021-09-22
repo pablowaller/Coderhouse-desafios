@@ -17,9 +17,6 @@ app.use(compression())
 const http = require('http').Server(app)
 const io = require('socket.io')(http)
 
-//-- Database Connection 
-require('./config/db')
-
 //-- Passport Config
 require('./config/passport')(passport)
 
@@ -72,7 +69,7 @@ app.use('/graphql', require('./graphql'))
 //Socket
 initListeners(io)
 
-const PORT = process.argv[2] ||  process.env.PORT || 8080 
+const PORT = process.env.PORT || 8080 
 
 
 const server = http.listen(PORT, () => {

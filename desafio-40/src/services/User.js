@@ -1,10 +1,11 @@
-const UserSchema = require ('../schemas/UserSchema')
-const MongoCrud = require('./MongoCrud')
+const model = require('../persistences/PersistenceFactory')('User')
+const ServiceCrud = require('./ServiceCrud')
 
-class User extends MongoCrud{
-    constructor(){
-        super(UserSchema)
-    }
+class User extends ServiceCrud{
+   constructor(model){
+       super(model)
+   }
 }
 
-module.exports = new User()
+
+module.exports = new User(model)

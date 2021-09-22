@@ -5,8 +5,8 @@ const User = require('../services/User')
 const { sendFacebookEmail } = require('../mail/ethereal')
 const { sendGmailMail } = require('../mail/gmail')
 
-const FACEBOOK_CLIENT_ID = process.argv[3]  ||  process.env.FACEBOOK_CLIENT_ID
-const FACEBOOK_CLIENT_SECRET = process.argv[4] || process.env.FACEBOOK_CLIENT_SECRET
+const FACEBOOK_CLIENT_ID =  process.env.FACEBOOK_CLIENT_ID
+const FACEBOOK_CLIENT_SECRET = process.env.FACEBOOK_CLIENT_SECRET
 
 module.exports = ( passport ) => {
 
