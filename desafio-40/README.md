@@ -1,4 +1,4 @@
-## Desafio 40 - Cliente HTTP de PRUEBAS
+## Desafio 40 - Mejorar la arquitectura de nuesta api
 
 ### Objetivos
 
@@ -6,13 +6,13 @@
 
 ---
 
-Se creo la carpeta `/persistences` la cual va a ser la encargada de manejar las interacciones a la base de datos a traves del Factory dentro de esta.
+:heavy_check_mark: Se creo la carpeta `/persistences` la cual va a ser la encargada de manejar las interacciones a la base de datos a traves del Factory dentro de esta.
 
-Se mantuvo la carpeta `/services` encargada de manegar la logica de negocio de la aplicacion la cual utiliza los modelos necesarios dentro de las persistencias establecidas. Para esto se utiliza el factory **PersistenceFactory** que recibe como parametro el nombre del modelo necesario y recibe una instancia de este.
+:heavy_check_mark: Se mantuvo la carpeta `/services` encargada de manegar la logica de negocio de la aplicacion la cual utiliza los modelos necesarios dentro de las persistencias establecidas. Para esto se utiliza el factory **PersistenceFactory** que recibe como parametro el nombre del modelo necesario y recibe una instancia de este.
 
-Dentro de la carpeta persistences se encuentra:
+:heavy_check_mark: Dentro de la carpeta persistences se encuentra:
 
-- models: Se encuentras los diferentes tipos de persistencia de cada modelo.
+- models: diferentes tipos de persistencia separados por modelos.
 - Mongo / MySql : Se encuentran los archivos de configuracion, modelos y migraciones necesarios para la creacion de los modelos correspondientes.
 - PersistenceFactory : Clase de tipo Factory que devuelve una instancia del modelo requerido.
 
