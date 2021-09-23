@@ -23,6 +23,22 @@ Cada tipo de persistencia requerida se la devuelve utilizando el metodo estatico
 Se debe crear `.env` con las variables mostradas en `.env.example`.  
 Para ejecutar en local `npm run dev`.
 
-Otras opciones : `npm run dev PORT FACEBOOK_CLIENT_ID FACEBOOK_CLIENT_SECRET FORK/CLUSTER`
+:seedling: Realizar migraciones de mysql:
+
+```
+npm run mysql:migrate
+```
+
+:green_circle: Para ejecutar con mongodb:
+
+```
+npm run dev mongodb
+```
+
+:large_blue_circle: Para ejecutar con mysql:
+
+```
+npm run dev mySql
+```
 
 > Curso de Programacion Backend Coderhouse
