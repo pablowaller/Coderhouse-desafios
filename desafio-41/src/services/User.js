@@ -1,7 +1,7 @@
 const model = require('../persistences/PersistenceFactory')('User')
-const ServiceCrud = require('./ServiceCrud')
+const BaseRepository = require('../repository/BaseRepository')
 
-class User extends ServiceCrud{
+class User extends BaseRepository{
    constructor(model){
        super(model)
    }

@@ -1,9 +1,7 @@
-class ServiceCrud{
-
+class BaseRepository{
     constructor(model){
         this.model = model
     }
-    
     async getById(id){
         return await this.model.getById(id)
     }
@@ -30,4 +28,4 @@ class ServiceCrud{
 }
 
 
-module.exports = ServiceCrud;
+module.exports = BaseRepository;
