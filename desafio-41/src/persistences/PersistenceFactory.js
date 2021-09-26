@@ -4,7 +4,7 @@ class PersistenceFactory {
             console.log(`Se ha elegido: ${type}`)
             return require(`./models/${modelName}/${type}`)
         }catch(err){
-            console.log('No se encontro el tipo de persistencia', type)
+            console.log('No se encontro el tipo de persistencia', type, modelName)
         }
     }
 }
