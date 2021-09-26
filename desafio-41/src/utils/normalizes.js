@@ -12,7 +12,7 @@ function normalizeMessages( messages ){
     const authorSchema = new schema.Entity('authors',{},{ idAttribute: 'id'})
     const messageSchema = new schema.Entity('messages',{
         author: authorSchema
-    },{idAttribute: '_id'})
+    },{idAttribute: 'id'})
     
     const data = new schema.Entity('data',{
         authors: [authorSchema],

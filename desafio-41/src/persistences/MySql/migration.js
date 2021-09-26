@@ -4,7 +4,7 @@ const migrate =  async () =>{
     try{
         await knex.schema.dropTableIfExists('productos');
         await knex.schema.createTable('productos', table => {
-            table.increments('_id')
+            table.increments('id')
             table.string('title',255)
             table.float('price')
             table.string('thumbnail',255)
@@ -14,7 +14,7 @@ const migrate =  async () =>{
         await knex.schema.dropTableIfExists('mensajes');
 
         await knex.schema.createTable('mensajes', table => {
-            table.increments('_id')
+            table.increments('id')
             table.jsonb('author')
             table.string('text')
             table.timestamp('date', { useTz: true }).notNullable().defaultTo(knex.fn.now())
@@ -24,7 +24,7 @@ const migrate =  async () =>{
         await knex.schema.dropTableIfExists('usuarios');
 
         await knex.schema.createTable('usuarios', table => {
-            table.increments('_id')
+            table.increments('id')
             table.string('username',255)
             table.string('password',255)
         })

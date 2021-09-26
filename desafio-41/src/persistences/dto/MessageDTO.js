@@ -1,7 +1,7 @@
 class MessageDTO {
 
     constructor( id, date, author, text ) {
-        this._id = id;
+        this.id = id;
         this.author = author;
         this.text = text;
         this.date = date;
