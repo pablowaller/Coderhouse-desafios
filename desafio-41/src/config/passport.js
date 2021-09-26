@@ -46,7 +46,7 @@ module.exports = ( passport ) => {
 
                 if (user) return done( null, false, console.log("message","User Already Exists"))
                 
-                user = await User.create({username: username, password:password})
+                user = await User.save({username: username, password:password})
                 
                 return done(null, user)
             }catch(err){

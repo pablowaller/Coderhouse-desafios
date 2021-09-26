@@ -17,6 +17,11 @@ class UserMongoDAO extends IUserDAO {
         return this.instance
     }
 
+    async save(data){
+        const { _id, username } = await this.model.create(data)
+        return  new this.DTO(_id, username, "") 
+    }
+
     async getOneBy(objectParams){
         const { _id, username, password } = await this.model.findOne(objectParams)
         return new this.DTO( _id, username, password ) 
