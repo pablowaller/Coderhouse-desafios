@@ -10,8 +10,7 @@ class ProductoController {
       if(!id){
         const prods = await productService.getAll()
         if (prods.length === 0) {
-          
-           res.status(404).json({ error: 'No hay productos cargados' })
+           return res.status(404).json({ error: 'No hay productos cargados' })
         }
         
         logger.info('Se retornaron productos')
@@ -27,8 +26,9 @@ class ProductoController {
       return res.json(producto)
 
     }catch(err){
-      res.status(500).json({error: err})
-      loggerError.error(err)
+
+      loggerError.error(err.message)
+      res.status(500).json({error: 'Ha ocurrido un Error'})
     }
   }
 
@@ -43,8 +43,8 @@ class ProductoController {
       
       res.status(201).json(producto)
     }catch(err){
-      res.status(500).json({error: err})
       loggerError.error(err.message)
+      res.status(500).json({error: 'Ha ocurrido un Error'})
     }
   }
 
@@ -70,7 +70,7 @@ class ProductoController {
       return res.status(200).json(producto)
       
     }catch(err){
-      res.status(500).json({error: err})
+      res.status(500).json({error: 'Ha ocurrido un Error'})
     }
     
   }
@@ -88,8 +88,7 @@ class ProductoController {
     return res.status(200).json({ message:"Se ha eliminado el producto",producto})
       
     }catch(err){
-      res.status(500).json({error: err})
-    }
+      res.status(500).json({error: 'Ha ocurrido un Error'})}
   }  
 }
 
