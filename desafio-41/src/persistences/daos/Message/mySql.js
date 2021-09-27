@@ -31,7 +31,6 @@ class MessageMySql extends IMessage{
 
     async getAll(){
         const data = await knex.from(this.db).select('*')
-        console.log(data.map(entity => new this.DTO(entity.id, entity.date, entity.author, entity.text)))
         return data.map(entity => new this.DTO(entity.id, entity.date, entity.author, entity.text))
     }
 

@@ -2,7 +2,6 @@ const Product = require('../services/Product')
 const Message = require('../services/Message')
 
 const {  normalizeMessages } = require('../utils/normalizes')
-const { sendAdminMessage } = require('../sms/twilioSms')
 
 module.exports = io =>{
 
@@ -26,15 +25,14 @@ module.exports = io =>{
   
         socket.on('mensajes:nuevo', async msg => {
           try{
-            await Message.save(msg)
 
+            await Message.sendMessage(msg)
             io.sockets.emit('mensajes',normalizeMessages(await Message.getAll()))
 
-            if(msg.text.toUpperCase().includes('ADMINISTRADOR')){
-              let sended = await sendAdminMessage(msg)
-              console.log(sended)
-            }
-          }catch(err){ console.log(err) }
+            
+          }catch(err){ 
+            console.log(err) 
+          }
             
       })      
     })

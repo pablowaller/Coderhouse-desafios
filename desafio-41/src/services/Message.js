@@ -1,11 +1,23 @@
-const model = require('../persistences/PersistenceFactory')('Message')
-const BaseRepository = require('../repository/BaseRepository')
+const messageRepository = require('../repository/MessageRepository')
+const { sendAdminMessage } = require('../sms/twilioSms')
 
-class Message extends BaseRepository{
-   constructor(model){
-       super(model)
+class MessageService {
+   constructor(messageRepository){
+       this.messageRepo = messageRepository
+   }
+
+   async getAll(){
+       return await this.messageRepo.getAll()
+   }
+
+   async sendMessage(msg){
+       
+    if(msg.text.toUpperCase().includes('ADMINISTRADOR')){
+        sendAdminMessage(msg)
+    }
+    return await this.messageRepo.save(msg)
    }
 }
 
 
-module.exports = new Message(model)
+module.exports = new MessageService(messageRepository)
