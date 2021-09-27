@@ -12,7 +12,6 @@ class BaseRepository{
 
     async getAll(){
         return await this.model.getAll()
-        
     }
 
     async save(data){
