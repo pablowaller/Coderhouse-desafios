@@ -1,10 +1,17 @@
 const model = require('../persistences/PersistenceFactory')('User')
-const BaseRepository = require('../repository/BaseRepository')
 
-class User extends BaseRepository{
+class User {
    constructor(model){
-       super(model)
+        this.model = model
    }
+
+   async getOneBy(objectParams){
+        return  await this.model.getOneBy(objectParams)
+   }
+
+   async save(data){
+    return await this.model.save(data)
+ }
 }
 
 
