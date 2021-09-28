@@ -1,22 +1,10 @@
-## Desafio 40 - Mejorar la arquitectura de nuesta api
+## Desafio 41 - Incorporando DAO y DTO
 
 ### Objetivos
 
-![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-40/consigna-40.PNG)
+![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-41/consigna-41.PNG)
 
 ---
-
-:heavy_check_mark: Se creo la carpeta `/persistences` la cual va a ser la encargada de manejar las interacciones a la base de datos a traves del Factory dentro de esta.
-
-:heavy_check_mark: Se mantuvo la carpeta `/services` encargada de manegar la logica de negocio de la aplicacion la cual utiliza los modelos necesarios dentro de las persistencias establecidas. Para esto se utiliza el factory **PersistenceFactory** que recibe como parametro el nombre del modelo necesario y recibe una instancia de este. Estos servicios extienden de ServiceCrud el cual utiliza el modelo inyectado para devolver resultado a los controladores que lo requieran.
-
-:heavy_check_mark: Dentro de la carpeta persistences se encuentra:
-
-- models: diferentes tipos de persistencia separados por modelos.
-- Mongo / MySql : Se encuentran los archivos de configuracion, modelos y migraciones necesarios para la creacion de los modelos correspondientes. Tambien se encuentra una clase de tipo Crud de la cual heredan funcionalidad los modelos para generalizar sus funciones.
-- PersistenceFactory : Clase de tipo Factory que devuelve una instancia del modelo requerido.
-
-Cada tipo de persistencia requerida se la devuelve utilizando el metodo estatico _getInstance_ declarado en cada una de estas para obtener el **Patron Singleton**.
 
 ---
 
