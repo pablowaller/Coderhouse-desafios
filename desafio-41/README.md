@@ -6,6 +6,10 @@
 
 ---
 
+:heavy_check_mark: Se incorpo DAO Y DTO: - Se crearon las diferentes interfaces las cuales implementan a traves de la herencia los modelos tanto de mysql y mongo dentro de la carpeta DAOS. Devuelven a su vez un objeto de tipo DTO segun el modelo necesario.
+
+:heavy_check_mark: Patron Repository para gestionar el canal de chat: - Dentro de la carpeta `/repository` se creo **MessageRepository**, el cual hereda los metodos CRUD de **BaseRepository**. Este repository es injectado en el service de Message incorporando abstraccion sobre la base de datos a tratar.
+
 ---
 
 Se debe crear `.env` con las variables mostradas en `.env.example`.  
