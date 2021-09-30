@@ -1,7 +1,8 @@
 const mongoose = require ('mongoose')
+const config = require('../../config/config')
 
 
-const MONGOURL = process.env.ENV !== 'DEV' ? process.env.MONGO_ATLAS_URL : process.env.MONGO_URL
+const MONGOURL = config.NODE_ENV !== 'development' ? config.MONGO_ATLAS_URL : config.MONGO_URL
 
 const connection = mongoose.connect(`${MONGOURL}/ecommerceTest`, { 
     useNewUrlParser: true, 

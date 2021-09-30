@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser')
 const MongoStore = require('connect-mongo')
 const passport = require('passport')
 const compression = require('compression')
+const config = require('./config/config')
 
 const { logger, loggerError } = require('./logger/config')
 
@@ -31,7 +32,7 @@ app.use(session({
   saveUninitialized: true,
 }))
 
-if(process.env.ENV == 'DEV') {
+if( config.NODE_ENV == 'development') {
   app.use(require('morgan')('dev'))
 }
 
@@ -69,11 +70,11 @@ app.use('/graphql', require('./graphql'))
 //Socket
 initListeners(io)
 
-const PORT = process.env.PORT || 8080 
+const PORT = config.PORT
 
 
 const server = http.listen(PORT, () => {
- logger.info(`servidor escuchando en http://localhost:${PORT} || PID ${process.pid}`, )
+ logger.info(`servidor escuchando en http://${config.HOST}:${PORT} || PID ${process.pid}`, )
 })
 
 server.on('error', error => {

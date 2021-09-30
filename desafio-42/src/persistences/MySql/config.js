@@ -1,11 +1,13 @@
+const config = require("../../config/config")
 
+config
 const options = {
     client: 'mysql',
     connection: {
-        host : "127.0.0.1",
-        user : 'root',
-        password : '',
-        database : 'ecommerce-desafios',
+        host : config.MYSQL_HOST,
+        user : config.MYSQL_USER,
+        password : config.MYSQL_PASSWORD,
+        database : config.MYSQL_DATABASE,
         typeCast: function(field, next) {
             if (field.type === 'BLOB') {
                 if(field.name === 'author'){
