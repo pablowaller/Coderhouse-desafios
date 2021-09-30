@@ -1,7 +1,7 @@
 const config = require('../config/config')
 const { loggerError } = require('../logger/config')
 
-const client = require('twilio')(config.TWILIO_ACCOUNTSID,config.TWILIO_AUTH_TOKEN)
+const client = require('twilio')(config.TWILIO_ACCOUNT_SID, config.TWILIO_AUTH_TOKEN)
 
 
 function sendAdminMessage(message){

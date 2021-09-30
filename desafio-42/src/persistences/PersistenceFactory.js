@@ -1,3 +1,7 @@
+const config = require("../config/config")
+
+
+
 class PersistenceFactory {
     static getPersistence(type,modelName){
         try {
@@ -9,6 +13,6 @@ class PersistenceFactory {
     }
 }
 
-const typePersistence = process.argv[2] || 'mongodb'
+const typePersistence = config.PERSISTENCE
 module.exports = ( modelName ) =>
      PersistenceFactory.getPersistence( typePersistence, modelName )

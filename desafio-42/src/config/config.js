@@ -1,7 +1,18 @@
+const path = require('path')
+const args = require('yargs').argv;
+
+console.log(args)
+require('dotenv').config({
+  path: path.resolve(process.cwd(), process.env.NODE_ENV + '.env' )
+})
+
+const persistence = process.env.NODE_ENV == 'development' ? 'mongodb' : 'mySql' 
+
 module.exports = {
     NODE_ENV: process.env.NODE_ENV || 'development',
     HOST: process.env.HOST || '127.0.0.1',
-    PORT: process.env.PORT || '8080',
+    PORT: args.port || '8080',
+    PERSISTENCE: persistence,
 
     MONGO_URL: process.env.MONGO_URL || 'mongodb://localhost:27017' ,
     MONGO_ATLAS_URL: process.env.MONGO_ATLAS_URL,
@@ -13,7 +24,7 @@ module.exports = {
 
     FACEBOOK_CLIENT_ID: process.env.FACEBOOK_CLIENT_ID,
     FACEBOOK_CLIENT_SECRET: process.env.FACEBOOK_CLIENT_SECRET,
-    
+
     ETHEREAL_MAIL: process.env.ETHEREAL_MAIL,
     ETHEREAL_PASS: process.env.ETHEREAL_PASS,
 
@@ -23,6 +34,6 @@ module.exports = {
     TWILIO_ACCOUNT_SID: process.env.TWILIO_ACCOUNT_SID,
     TWILIO_AUTH_TOKEN: process.env.TWILIO_AUTH_TOKEN,
 
-    TWILIO_MUMBER: process.env.TWILIO_MUMBER,
+    TWILIO_NUMBER: process.env.TWILIO_NUMBER,
     TWILIO_ADMIN_NUMBER: process.env.TWILIO_ADMIN_NUMBER,
 }

@@ -1,6 +1,5 @@
 const config = require("../../config/config")
 
-config
 const options = {
     client: 'mysql',
     connection: {

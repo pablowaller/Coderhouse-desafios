@@ -7,9 +7,9 @@ const passport = require('passport')
 const compression = require('compression')
 const config = require('./config/config')
 
+
 const { logger, loggerError } = require('./logger/config')
 
-require('dotenv').config()
 
 const initListeners = require('./listeners')
 const app = express()
