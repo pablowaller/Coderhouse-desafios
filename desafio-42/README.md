@@ -9,6 +9,7 @@
 :heavy_check_mark: Se creo el archivo de configuraciones en `/config/config.js`. Se establecieron las variables de entorno utilizadas.
 
 :heavy_check_mark: Se crearon los script en package.json.
+
 ---
 
 Se debe crear `development.env` con las variables mostradas en `.env.example`.  
