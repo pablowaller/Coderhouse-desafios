@@ -10,9 +10,24 @@
 
 ---
 
-Se debe crear `.env` con las variables mostradas en `.env.example`.  
-Para ejecutar en local `npm run watch`.
-Para ejecutar en dev con un puerto especifico: `npm run watch -- --port=8082`
+Se debe crear `development.env` con las variables mostradas en `.env.example`.  
+Para ejecutar en local:
+
+```
+npm run watch
+```
+
+Para ejecutar en dev con un puerto especifico:
+
+```
+npm run watch -- --port=8082
+```
+
+Para ejecutar en modo cluster:
+
+```
+npm run watch -- --cluster=CLUSTER
+```
 
 :seedling: Realizar migraciones de mysql:
 
