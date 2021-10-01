@@ -1,7 +1,7 @@
 const path = require('path')
 const args = require('yargs').argv;
 
-console.log(args)
+
 require('dotenv').config({
   path: path.resolve(process.cwd(), process.env.NODE_ENV + '.env' )
 })
@@ -13,6 +13,7 @@ module.exports = {
     HOST: process.env.HOST || '127.0.0.1',
     PORT: args.port || '8080',
     PERSISTENCE: persistence,
+    CLUSTER: args.cluster,
 
     MONGO_URL: process.env.MONGO_URL || 'mongodb://localhost:27017' ,
     MONGO_ATLAS_URL: process.env.MONGO_ATLAS_URL,

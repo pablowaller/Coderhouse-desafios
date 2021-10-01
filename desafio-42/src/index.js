@@ -1,7 +1,8 @@
 const cluster = require ('cluster')
+const config = require('./config/config')
 const numCPUs = require ('os').cpus().length
 
-if (process.argv[5] == 'CLUSTER'){
+if (config.CLUSTER == 'CLUSTER'){
       if(cluster.isMaster){
       console.log(numCPUs)
       console.log(`PID MASTER ${process.pid}`)
