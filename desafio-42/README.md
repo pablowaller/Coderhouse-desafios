@@ -4,10 +4,15 @@
 
 ---
 
+![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-42/consigna-42.PNG)
+
+:heavy_check_mark: Se creo el archivo de configuraciones en `/config/config.js`. Se establecieron las variables de entorno utilizadas.
+
 ---
 
 Se debe crear `.env` con las variables mostradas en `.env.example`.  
-Para ejecutar en local `npm run dev`.
+Para ejecutar en local `npm run watch`.
+Para ejecutar en dev con un puerto especifico: `npm run watch -- --port=8082`
 
 :seedling: Realizar migraciones de mysql:
 
