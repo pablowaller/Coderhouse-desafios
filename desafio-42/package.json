@@ -7,7 +7,7 @@
     "start": "set NODE_ENV=production&& node ./src/index.js",
     "dev": "set NODE_ENV=development&& node ./src/index.js",
     "prod": "set NODE_ENV=production&& node ./src/index.js",
-    "watch": "set NODE_ENV=development&& nodemon ./src/index.js --port=8081",
+    "watch": "set NODE_ENV=development&& nodemon ./src/index.js",
     "test": "mocha ./src/tests/*.test.js",
     "mysql:migrate": "node ./src/persistences/MySql/migration.js",
     "PM2-fork": "pm2 start ./src/index.js  --name='ServidorFork' --watch  -- 8081 false false FORK ",
