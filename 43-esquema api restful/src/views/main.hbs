@@ -1,0 +1,77 @@
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="/index.js"></script>
+    <script src="/msgSocket.js"></script>
+    
+</head>
+
+<style>
+    #chat-container{
+        min-height: 10rem ;
+        max-height: 20rem ;
+        overflow-y: scroll;
+    }
+</style>
+<div id="cont-compression"></div>
+<div class="jumbotron bg-success text-light">
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+                <h2 style="text-align: center">Ingrese Producto</h2>
+
+            <form action="/api/productos/guardar" id="products-form" method="POST">
+                <div class="form-group">
+                    <label for="title">Nombre</label>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="Nombre de Producto" />
+                </div>
+                <div class="form-group">
+                    <label for="price">Precio</label>
+                    <input class="form-control" type="number" id="price" name="price"  placeholder="500"/>
+                </div>
+                <div class="form-group">
+                    <label for="imageUrl">Foto URL:</label>
+                    <input class="form-control" type="text" id="imageUrl" name="thumbnail" placeholder="image.png"/>
+                </div>
+
+                <button class="btn btn-dark btn-block">Guardar</button>
+            </form>
+        </div>
+            <div class="col-md-6"><div id="productos"></div></div>
+    </div>
+    <hr/>
+
+</div>
+
+                    <!--  Crua CHAT  -->
+
+<div class="jumbotron bg-info text-light">
+    <h2>Messages Center</h2>
+        <div class="row mb-2">
+            <div class="col-6">
+                <input class="form-control bg-dark text-light" value="{{ user.email }}" id="email" type="email" placeholder="Tu email!"  />
+                <input class="form-control bg-dark text-light" value="apellido" id="apellido" type="apellido" placeholder="Tu apellido!"  />
+                <input class="form-control bg-dark text-light" value="nombre" id="nombre" type="nombre" placeholder="Tu nombre!"  />
+                <input class="form-control bg-dark text-light" value="22" id="edad" type="edad" placeholder="Tu edad!"  />
+                <input class="form-control bg-dark text-light" value="alias" id="alias" type="alias" placeholder="Tu alias!"  />
+                <input class="form-control bg-dark text-light" value="https://icon-library.com/images/pikachu-icon/pikachu-icon-26.jpg" id="avatar" type="avatar" placeholder="Tu avatar!"  />
+            </div>
+        </div>
+                    
+        <div class="p-3  bg-dark text-dark" id="chat-container">
+           
+        </div>
+
+        <div class="pl-5 pr-5  mt-2" >
+            <div  class="row justify-content-center">
+                <form id="chat-form" class="col-md-6">
+                    <div class="d-flex">
+                        <input id="chat-message"class="form-control mr-2" type="text" placeholder="Message"/>
+                        <button id="chat-btn" class="btn btn-success" type="submit">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+               
+    </div>
