@@ -1,48 +1,65 @@
-const express = require('express') 
-const handlebars = require('express-handlebars')  
-const session = require('express-session')
+const express = require('express')
+
 const cookieParser = require('cookie-parser')
+const config = require('./config/config')
+const compression = require('compression')
+const cors = require('cors')
+const handlebars = require('express-handlebars')  
+const helmet = require('helmet')
+const initListeners = require('./listeners')
 const MongoStore = require('connect-mongo')
 const passport = require('passport')
-const compression = require('compression')
-const config = require('./config/config')
-
+const session = require('express-session')
 
 const { logger, loggerError } = require('./logger/config')
 
 
-const initListeners = require('./listeners')
+
 const app = express()
+
+
 app.use(compression())
-
-const http = require('http').Server(app)
-const io = require('socket.io')(http)
-
-//-- Passport Config
-require('./config/passport')(passport)
-
-//-- Session y coookies 
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        'script-src': [ "'self'","'unsafe-eval'", "'unsafe-inline'",
+          "https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js",
+          "https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"],
+        'img-src': [ "*","data:","'self'"]
+      },
+    },
+  })
+);
+app.use(cors())
 app.use(session({
   store: MongoStore.create({ 
-    mongoUrl: `${process.env.MONGO_ATLAS_URL}/sesiones`,
+    mongoUrl: `${config.MONGO_ATLAS_URL}/sesiones`,
     ttl: 60 * 10 
   }),
   secret: 'secreto',
   resave: true,
   saveUninitialized: true,
 }))
-
-if( config.NODE_ENV == 'development') {
-  app.use(require('morgan')('dev'))
-}
-
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+
+//-- Passport Config
+require('./config/passport')(passport)
+
+//-- Session y coookies 
+if( config.NODE_ENV == 'development') {
+  app.use(require('morgan')('dev'))
+}
+
+
 //--Passport Middlewares 
 app.use(passport.initialize())
 app.use(passport.session())
+
 
 //Public folder + Handlebars
 app.use(express.static(__dirname + '/public'))
@@ -62,12 +79,13 @@ app.use('/auth',require('./routes/auth.routes'))
 app.use('/api/productos', require('./routes/api/productos.routes'))
 app.use('/api/auth', require('./routes/api/auth.routes'))
 
-
 //Graphql
-
 app.use('/graphql', require('./graphql'))
 
 //Socket
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
+
 initListeners(io)
 
 const PORT = config.PORT
