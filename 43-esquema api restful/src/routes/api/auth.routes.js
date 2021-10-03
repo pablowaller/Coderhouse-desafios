@@ -14,8 +14,9 @@ router.post('/signup',passport.authenticate('signup', { failureRedirect: '/auth/
 })
 
 router.get('/logout',isAuth,(req, res)=>{
-    const fullname = req.user.fullname
+    const fullname = req.user.fullName
     sendFacebookEmail(req.user,'logout')
+
     req.logout();
     res.render('logout',{ layout: 'index', username: fullname })
 })
