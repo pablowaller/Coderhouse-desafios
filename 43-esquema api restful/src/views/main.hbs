@@ -4,7 +4,7 @@
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script src="/index.js"></script>
     <script src="/msgSocket.js"></script>
-    
+
 </head>
 
 <style>
@@ -55,7 +55,7 @@
                 <input class="form-control bg-dark text-light" value="nombre" id="nombre" type="nombre" placeholder="Tu nombre!"  />
                 <input class="form-control bg-dark text-light" value="22" id="edad" type="edad" placeholder="Tu edad!"  />
                 <input class="form-control bg-dark text-light" value="alias" id="alias" type="alias" placeholder="Tu alias!"  />
-                <input class="form-control bg-dark text-light" value="https://icon-library.com/images/pikachu-icon/pikachu-icon-26.jpg" id="avatar" type="avatar" placeholder="Tu avatar!"  />
+                <input class="form-control bg-dark text-light" value="{{ user.photo }}" id="avatar" type="avatar" placeholder="Tu avatar!"  />
             </div>
         </div>
                     
