@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const prodController = require('../../api/ProductoController')
+const prodController = require('../../controllers/ProductoController')
 
 router.get('/listar/:id?',prodController.listar)
 
