@@ -9,6 +9,7 @@
 ---
 
 :heavy_check_mark: Se elimino la carpeta `controllers` unificando esta funcion en routes.
+:heavy_check_mark: Se cambiaron Routas a formato REST.
 :heavy_check_mark: Se agregaron validaciones con la biblioteca Joi dentro de `middlewares`.
 :heavy_check_mark: Se aplico Helmet con la configuracion necesaria.
 :heavy_check_mark: Se aplicaron cors.
