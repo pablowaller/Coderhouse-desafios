@@ -52,4 +52,8 @@ const loggerWarn = winston.createLogger({
 })
 
 
-module.exports = { logger, loggerError, loggerWarn }
+module.exports = { 
+    info:(msg)=> logger.info(msg),
+    warn:(msg)=> loggerWarn.warn(msg),
+    error:(msg)=> loggerError.error(msg)
+}
