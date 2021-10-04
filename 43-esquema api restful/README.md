@@ -4,12 +4,17 @@
 
 ---
 
-![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/desafio-43/consigna-43.PNG)
+![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/43-esquema%20api%20restful/consigna-43.PNG)
 
 ---
 
+:heavy_check_mark: Se elimino la carpeta `controllers` unificando esta funcion en routes.
+:heavy_check_mark: Se agregaron validaciones con la biblioteca Joi dentro de `middlewares`.
+:heavy_check_mark: Se aplico Helmet con la configuracion necesaria.
+:heavy_check_mark: Se aplicaron cors.
+
 Se debe crear `development.env` con las variables mostradas en `.env.example`.  
-Para ejecutar en local:
+Para ejecutar en local con nodemon:
 
 ```
 npm run watch
@@ -31,18 +36,6 @@ npm run watch -- --cluster=CLUSTER
 
 ```
 npm run mysql:migrate
-```
-
-:green_circle: Para ejecutar con mongodb:
-
-```
-npm run dev mongodb
-```
-
-:large_blue_circle: Para ejecutar con mysql:
-
-```
-npm run dev mySql
 ```
 
 > Curso de Programacion Backend Coderhouse
