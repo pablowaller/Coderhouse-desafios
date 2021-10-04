@@ -6,11 +6,11 @@
 
 ![image text](https://raw.githubusercontent.com/AlejandroD-A/Coderhouse-desafios/main/43-esquema%20api%20restful/consigna-43.PNG)
 
-:heavy_check_mark: Se elimino la carpeta `controllers` unificando esta funcion en routes.
-:heavy_check_mark: Se cambiaron Routas a formato REST.
-:heavy_check_mark: Se agregaron validaciones con la biblioteca Joi dentro de `middlewares`.
-:heavy_check_mark: Se aplico Helmet con la configuracion necesaria.
-:heavy_check_mark: Se aplicaron cors.
+:heavy_check_mark: Se elimino la carpeta `controllers` unificando esta funcion en routes.  
+:heavy_check_mark: Se cambiaron Routas a formato REST.  
+:heavy_check_mark: Se agregaron validaciones con la biblioteca Joi dentro de `middlewares`.  
+:heavy_check_mark: Se aplico Helmet con la configuracion necesaria.  
+:heavy_check_mark: Se aplicaron cors.  
 
 ---
 
