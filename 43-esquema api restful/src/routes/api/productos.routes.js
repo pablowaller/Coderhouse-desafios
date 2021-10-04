@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const productService = require('../../services/Product')
-
+const logger = require('../../logger/config')
 const { saveProductValidator, updateProductValidator} = require('../../middleware/validateSchemas')
 
-router.get('/listar/:id?', async (req, res) => {
+router.get('/:id?', async (req, res) => {
     try{
         const { id } = req.params
         //Obtener Todos
@@ -31,7 +31,7 @@ router.get('/listar/:id?', async (req, res) => {
       }
 })
 
-router.post('/guardar', saveProductValidator, async ( req, res ) => {
+router.post('/', saveProductValidator, async ( req, res ) => {
     try{
         const producto = await productService.save(req.body)
         res.status(201).json(producto)
@@ -41,7 +41,7 @@ router.post('/guardar', saveProductValidator, async ( req, res ) => {
       }
 })
 
-router.put('/actualizar/:id', updateProductValidator, async (req, res) =>{
+router.put('/:id', updateProductValidator, async (req, res) =>{
     try{
         const producto = await productService.update( (req.params.id), req.body)
     
@@ -56,7 +56,7 @@ router.put('/actualizar/:id', updateProductValidator, async (req, res) =>{
       }
 } )
 
-router.delete('/borrar/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try{
         const producto = await productService.delete(req.params.id)
   
