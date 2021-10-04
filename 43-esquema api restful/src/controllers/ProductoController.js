@@ -5,7 +5,6 @@ class ProductoController {
   async listar(req, res){
     try{
       const { id } = req.params
-
       //Obtener Todos
       if(!id){
         const prods = await productService.getAll()
@@ -34,13 +33,7 @@ class ProductoController {
 
   async guardar (req, res){
     try{
-      const { title, price, thumbnail } = req.body
-      const producto = await productService.save({
-        title,
-        price,
-        thumbnail
-      })
-      
+      const producto = await productService.save(req.body)
       res.status(201).json(producto)
     }catch(err){
       loggerError.error(err.message)
@@ -50,23 +43,12 @@ class ProductoController {
 
   async actualizar(req, res){
     try{
-      let data = {}
-      
-      //Valido que se hayan enviado exactamente esos atributo s
-      const { title, price, thumbnail } = req.body
-  
-      if(title) data.title = title
-      if(price) data.price = price
-      if(thumbnail) data.thumbnail = thumbnail
-  
-      const producto = await productService.update( (req.params.id), data)
+      const producto = await productService.update( (req.params.id), req.body)
   
       if(producto == null || producto == undefined){
         loggerWarn.warn('No se encontro el producto')
         return res.status(404).json({ code: 404, message: 'No se encontro el producto' })
-
       }
-  
       return res.status(200).json(producto)
       
     }catch(err){
