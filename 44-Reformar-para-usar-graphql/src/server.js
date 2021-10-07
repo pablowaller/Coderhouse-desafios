@@ -75,10 +75,6 @@ app.use('/',require('./routes/index.routes'))
 app.use('/productos',require('./routes/productos.routes'))
 app.use('/auth',require('./routes/auth.routes'))
 
-// Api Routes -
-app.use('/api/productos', require('./routes/api/productos.routes'))
-app.use('/api/auth', require('./routes/api/auth.routes'))
-
 // Graphql -
 app.use('/graphql', require('./graphql'))
 

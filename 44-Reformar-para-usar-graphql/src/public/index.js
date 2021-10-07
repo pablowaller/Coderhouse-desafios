@@ -35,18 +35,36 @@ window.addEventListener('load',()=>{
         e.preventDefault()
         const producto = {
             title : document.getElementsByName('title')[0].value,
-            price :  document.getElementsByName('price')[0].value,
+            price : Number(document.getElementsByName('price')[0].value),
             thumbnail :  document.getElementsByName('thumbnail')[0].value,
         }
       
-        
-        fetch(`${url}/api/productos/guardar`,{ 
-            headers: {
-                'Content-Type': 'application/json'
-            },
+        let saveProductQuery = `
+            mutation GuardarProducto($title: String!, $price: Int!, $thumbnail: String!){
+                guardarProducto(
+                    title: $title,
+                    price: $price,
+                    thumbnail: $thumbnail
+                ){
+                    id
+                    title
+                    price
+                    thumbnail
+                }
+            }
+        `
+        fetch(`${url}/graphql`,{
             method: 'POST',
-            body: JSON.stringify(producto)
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+                query: saveProductQuery,
+                variables: { ...producto }
+            })
         }).then(res => {
+            console.log(res)
             socket.emit('productos:update')
             form.reset()
         }).catch(err=> console.error(err))

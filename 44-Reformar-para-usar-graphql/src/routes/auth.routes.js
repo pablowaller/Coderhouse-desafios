@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
-
+const { sendFacebookEmail } = require('../mail/ethereal')
+const { isAuth } = require('../middleware/auth')
 
 router.get('/login',(req, res)=>{
     if(req.user) return res.redirect('/')
@@ -26,4 +27,14 @@ router.get('/facebook/callback',passport.authenticate('facebook',{
     successRedirect: '/',
     failureRedirect: '/failLogin'
 }))
+
+router.get('/logout',isAuth,(req, res)=>{
+    const fullname = req.user.fullName
+    sendFacebookEmail(req.user,'logout')
+
+    req.logout();
+    res.render('logout',{ layout: 'index', username: fullname })
+})
+
+
 module.exports = router
