@@ -6,17 +6,16 @@
 
 ---
 
-:heavy_check_mark: Se crearon las rutas api para productos: 
+:heavy_check_mark: Se crearon las rutas api para productos:   
  * **GET** products
  * **GET** products/:id
  * **POST** products
  * **PUT** products
  * **DELEte** products
 
-:heavy_check_mark: Se creo el schema Product en Mongo y se realizo la vinculacion con el framework. 
-:heavy_check_mark: Se implementaron las vistas del proyecto anterior.
-
-:heavy_check_mark: Se agrego la funcionalidad de websocket para el formulario de productos.
+:heavy_check_mark: Se creo el schema Product en Mongo y se realizo la vinculacion con el framework.   
+:heavy_check_mark: Se implementaron las vistas del proyecto anterior.  
+:heavy_check_mark: Se agrego la funcionalidad de websocket para el formulario de productos.  
 
 
 ---
