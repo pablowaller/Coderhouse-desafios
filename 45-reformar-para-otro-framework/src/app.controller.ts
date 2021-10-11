@@ -12,7 +12,7 @@ export class AppController {
      }
   }
 
-  @Get('/vista')
+  @Get('productos/vista')
   @Render('vista')
   async vistaProductos() {
     const productos = await this.ProductsService.findAll()
