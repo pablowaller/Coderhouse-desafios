@@ -19,4 +19,17 @@ export class ProductsService {
         const createdProduct = await this.productModel.create(createProductDto)
         return  createdProduct.save()
     }
+    async update(id: string, createProductDto:CreateProductDto): Promise<IProduct>{
+        const updated = await this.productModel.updateOne({id: id},{ $set: createProductDto })
+        if(!updated) return undefined
+
+        return this.productModel.findById(id).exec()
+    }
+
+    async delete(id: string): Promise<IProduct>{
+        const product = await this.findOne(id)
+        if(!product) return undefined
+        await this.productModel.deleteOne({id: id})
+        return product
+    }
 }
