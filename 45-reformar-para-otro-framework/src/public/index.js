@@ -1,6 +1,7 @@
 console.log('working')
 window.addEventListener('load',()=>{
     const socket = io.connect()
+    console.log(socket)
     const form = document.querySelector('form')
     
     // Template en handlebars
@@ -24,6 +25,7 @@ window.addEventListener('load',()=>{
     
     
     socket.on('productos',productos =>{
+        console.log(productos)
         var HTML = template({productos: productos,hayProductos: productos.length ? true : false })
         document.querySelector('#productos').innerHTML = HTML
     })
@@ -39,7 +41,7 @@ window.addEventListener('load',()=>{
         }
       
         
-        fetch(`${url}/api/productos/guardar`,{ 
+        fetch(`${url}/products`,{ 
             headers: {
                 'Content-Type': 'application/json'
             },
