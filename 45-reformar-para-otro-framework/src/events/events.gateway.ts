@@ -12,7 +12,7 @@ export class EventsGateway implements OnGatewayConnection {
  private logger: Logger = new Logger('AppGateway');
 
  @SubscribeMessage('productos:update')
- async handleMessage(client: Socket, payload: string): Promise<any> {
+ async getUpdatedProducts(client: Socket, payload: string): Promise<any> {
   this.server.emit('productos', await this.productsService.findAll())
  }
 
